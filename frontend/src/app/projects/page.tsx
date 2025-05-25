@@ -109,8 +109,8 @@ export default function ProjectsPage() {
             <Loader2 className="h-16 w-16 text-blue-500 animate-spin" />
             <p className="mt-6 text-xl font-medium text-gray-700">
                 {pageLoadingState === 'session_init' ? 'Initializing Session...' : 'Loading Your Projects...'}
-            </p>
-            <p className="mt-2 text-base text-gray-500">Hang tight, we're getting things ready for you.</p>
+            </p> 
+            <p className="mt-2 text-base text-gray-500">Hang tight, we are getting things ready for you.</p>
         </div>
     );
 

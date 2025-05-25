@@ -189,14 +189,14 @@ export default function Agent3ReportPage() {
         body: formData,
       });
 
-      if (!response.ok) {
-        let errorDetail = `Server responded with ${response.status}.`;
-        try {
-            const errorJson = await response.json(); // Try to get detail from JSON error
-            errorDetail = errorJson.detail || errorDetail;
-        } catch (e) { /* Ignore if response is not JSON */ }
-        throw new Error(`PDF download failed: ${errorDetail}`);
-      }
+      // if (!response.ok) {
+      //   let errorDetail = `Server responded with ${response.status}.`;
+      //   try {
+      //       const errorJson = await response.json(); // Try to get detail from JSON error
+      //       errorDetail = errorJson.detail || errorDetail;
+      //   } catch (e) { /* Ignore if response is not JSON */ }
+      //   throw new Error(`PDF download failed: ${errorDetail}`);
+      // }
 
       const blob = await response.blob();
       if (blob.type !== "application/pdf") {
