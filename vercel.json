@@ -1,23 +1,21 @@
 {
-    "version": 2,
-    "builds": [
-      {
-        "src": "frontend/next.config.js", 
-        "use": "@vercel/next"
-      },
-      {
-        "src": "backend/main.py",
-        "use": "@vercel/python"
-      }
-    ],
-    "routes": [
-      {
-        "src": "/api/(.*)",
-        "dest": "backend/main.py" 
-      },
-      {
-        "src": "/(.*)",
-        "dest": "frontend/$1"
-      }
-    ]
-  }
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/next.config.js",
+      "use": "@vercel/next",
+      "config": { "zeroConfig": true } 
+    },
+    {
+      "src": "backend/main.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "rewrites": [ 
+    {
+      "source": "/api/:match*",
+      "destination": "/backend/main.py" 
+    }
+
+  ]
+}
