@@ -1,99 +1,177 @@
-# Environment variables
-.env
-.env*.local
-.env.*.local
-*.env
+####################################
+# Environment & Secret Files       #
+####################################
+# For the .env file inside the backend directory
+backend/.env
+backend/project_data/
+backend/projects_db.json
+backend/agent2_temp_input_pdfs/
+backend/agent2_input_pdfs/
+backend/agent2_paper_extractions/
+backend/project_reports/
+backend/agent1_found_papers_metadata.json 
+backend/project_report.md
+backend/node_modules/ 
 
-# Python
+# General .env patterns (might catch .env files elsewhere if created by mistake)
+.env*
+*.env 
+# Next.js specific environment files (these would be in frontend/)
+frontend/.env.local
+frontend/.env.development.local
+frontend/.env.test.local
+frontend/.env.production.local
+
+####################################
+# Python General                   #
+####################################
 __pycache__/
 *.py[cod]
 *$py.class
 *.egg
 *.egg-info/
 dist/
-build/
-*.so
-*.Python
-*.log
-*.pot
+# build/ # Usually for Python packages, Next.js uses .next/ or out/
+
+*.so # Compiled extensions
+*.Python # Spyder project file
+*.log # General log files
+*.pot # Gettext localization
 *.pyc
 *.orig
 
-# Virtual Environment
-.venv/
-venv/
-env/
-ENV/
+####################################
+# Virtual Environment              #
+####################################
+.venv/ # If your venv is at the project root
+backend/.venv/ # If your venv is inside backend/
+# Add other common venv names if you use them:
+# venv/
+# env/
+# ENV/
+
 pip-log.txt
 pip-delete-this-directory.txt
-local_settings.py
+local_settings.py # Common local override for Django/Python settings
 celerybeat-schedule
+celerybeat.pid
 
-# FastAPI / Uvicorn specific (if any temp files are generated)
-# (Usually not much to add here beyond general Python)
+####################################
+# FastAPI / Uvicorn                #
+####################################
+# Typically covered by Python general ignores.
 
-# Node.js / Next.js
-node_modules/
-.next/
-out/
-build/ # Common build output directory, might conflict if backend also uses 'build'
+####################################
+# Node.js / Next.js (Frontend)     #
+####################################
+frontend/node_modules/
+frontend/.next/
+frontend/out/ # For 'next export'
+frontend/build/ # If 'next build' outputs here and isn't .next
+
+# Log files from Node package managers
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-package-lock.json # If you use npm and commit package-lock.json, keep this commented
-# yarn.lock # If you use yarn and commit yarn.lock, keep this commented
-.pnp.*
+pnpm-debug.log*
 
-# IDE / Editor specific
+# Lockfiles: IT IS GENERALLY RECOMMENDED TO COMMIT THESE.
+# Comment them out if you commit them. Uncomment if you explicitly want to ignore.
+# package-lock.json # For npm
+# yarn.lock         # For Yarn
+# pnpm-lock.yaml    # For pnpm
+
+# Next.js specific cache/build artifacts are mostly covered by .next/
+
+####################################
+# IDE / Editor Specific            #
+####################################
 .vscode/
 .idea/
+*.project
+*.classpath
+*.cproject
+*.launch
+*.settings
+*.tmPreferences.plist
+*.sublime-project
+*.sublime-workspace
+nbproject/
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
-*.sw?
 
-# OS specific
+####################################
+# Operating System Specific        #
+####################################
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+ehthumbs_vista.db
 Thumbs.db
 Desktop.ini
 
-# Project Specific Data / Logs (YOU SHOULD CUSTOMIZE THIS SECTION)
-# These are directories and files specific to YOUR application's runtime data or local state.
+####################################
+# Project Specific Data & Outputs  #
+# (Paths relative to this .gitignore file in project root) #
+####################################
 
-# Backend data (that shouldn't be versioned)
-project_data/           # Contains all project-specific agent outputs
-projects_db.json        # Your local projects database
-local_agent1_test_outputs/ # Output from Agent 1 local testing script
-agent2_temp_input_pdfs/ # Temporary PDFs for Agent 2
-# If you had old global output directories before project-specific paths, add them:
-# agent1_outputs/
-# agent2_paper_extractions/
-# agent3_reports/
-# agent2_input_pdfs/ # If this was your old global temp dir for agent2
+# --- Backend Generated Data, Databases, and Temporary Files ---
+backend/project_data/           # All project-specific agent outputs (Agent1, Agent2, Agent3)
+backend/projects_db.json        # Local projects database
+backend/agent2_temp_input_pdfs/ # Temporary PDFs uploaded for Agent 2 processing
 
-# Frontend (Next.js specific build/cache, .next is already covered by Node.js section)
+# --- Older global/less organized output directories that might still exist locally ---
+# --- These were accidentally committed before, ensure they are ignored now. ---
+backend/agent1_found_papers_metadata.json # If this single file was at backend/agent1_found_papers_metadata.json
+backend/agent2_input_pdfs/                # If this directory was at backend/agent2_input_pdfs/
+backend/agent2_paper_extractions/         # If this directory was at backend/agent2_paper_extractions/
+backend/project_report.md                 # If this file was at backend/project_report.md
+backend/project_reports/                  # If this directory was at backend/project_reports/
 
-# Test coverage
+# --- Local test script outputs ---
+# Assuming this is at the project root as per your original structure.
+# If it's inside backend/, change to backend/local_agent1_test_outputs/
+local_agent1_test_outputs/
+
+# --- Potentially problematic 'node_modules' in backend ---
+# If you truly have a node_modules directory inside your backend and it's intentional, uncomment the next line.
+# Otherwise, if it's an accident, you should delete it manually from backend/
+# backend/node_modules/
+
+####################################
+# Test & Coverage Reports          #
+####################################
 .coverage
 .coverage.*
 htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
+pytestdebug.log
+.pytest_cache/
 
-# Security - SSH keys, etc. (though these should ideally never be in the project folder)
+####################################
+# Security - Keys & Credentials    #
+####################################
 *.pem
 *.key
+*.cer
+*.p12
+*.pfx
+id_rsa
+id_dsa
+*.gpg
 
-# Jupyter Notebook checkpoints
-.ipynb_checkpoints
-
-# Ruff cache
+####################################
+# Tooling Cache                    #
+####################################
 .ruff_cache/
-
-# MyPy cache
 .mypy_cache/
 
-# pytest cache
-.pytest_cache/
+# Jupyter Notebook
+.ipynb_checkpoints
