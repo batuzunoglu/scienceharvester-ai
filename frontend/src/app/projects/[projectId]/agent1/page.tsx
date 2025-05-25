@@ -112,8 +112,8 @@ export default function Agent1Page() {
                 } else {
                     setLogs(prev => [...prev, "ℹ️ No previous Agent 1 data found. Form is ready for a new harvest."]);
                 }
-            } catch (error: any) {
-                const errorMessage = error.message || "An unknown error occurred during preloading.";
+            } catch (error) {
+                const errorMessage = (error as Error).message || "An unknown error occurred during preloading.";
                 setLogs(prev => [...prev, `❌ Error preloading Agent 1 data: ${errorMessage}`]);
                 setPreloadError(errorMessage);
                 setTopic(''); 
@@ -179,9 +179,9 @@ export default function Agent1Page() {
                   // console.log("[SSE ONMESSAGE] Parsed payload, setPapers with:", parsedPapers.length > 0 ? parsedPapers[0].title : "No papers");
                   setPapers(parsedPapers); 
                   // console.log("[SSE ONMESSAGE] Called setPapers.");
-              } catch (parseError: any) {
+              } catch (parseError) {
                   console.error("Agent1Page: Failed to parse result payload:", parseError, "Data:", data);
-                  setLogs(l => [...l, `❌ Error parsing final result: ${parseError.message}`]);
+                  setLogs(l => [...l, `❌ Error parsing final result: ${(parseError as Error).message}`]);
                   setPapers([]); 
                   // console.log("[SSE ONMESSAGE] Parse error, called setPapers([]).");
               }
