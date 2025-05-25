@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react'; // Added useEffect, useCallback
 import { useParams } from 'next/navigation';
-import { useProjects, Project, Extraction, TechFeature, QualInsights } from '@/context/ProjectsContext'; // Assuming Extraction, TechFeature, QualInsights are exported from context
+import { useProjects, Project, Extraction, QualInsights } from '@/context/ProjectsContext'; // Assuming Extraction, TechFeature, QualInsights are exported from context
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -14,7 +14,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
 export default function Agent2Page() {
   const { projectId: rawProjectId } = useParams();
-  const { getProjectDetails, getProject, updateExtractions } = useProjects(); // Added getProjectDetails
+  const { getProjectDetails, updateExtractions } = useProjects(); // Added getProjectDetails
 
   const [currentProjectId, setCurrentProjectId] = useState<string | null>(null);
   const [project, setProject] = useState<Project | null | undefined>(null);
