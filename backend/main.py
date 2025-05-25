@@ -1,10 +1,15 @@
 # backend/main.py
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from dotenv import load_dotenv # <<<< ADD THIS IMPORT
-import os                     # <<<< ADD THIS IMPORT (if not already there for other reasons)
+from dotenv import load_dotenv 
+import os                     
+import sys 
+import pathlib 
 
-load_dotenv() # <<<< ADD THIS LINE AT THE TOP (after imports, before app creation)
+
+BACKEND_DIR = pathlib.Path(__file__).resolve().parent
+sys.path.append(str(BACKEND_DIR)) 
+load_dotenv() 
 
 # You can add a print statement here to verify if the key is loaded for debugging:
 # print(f"--- Main.py: PERPLEXITY_API_KEY from env: {os.getenv('PERPLEXITY_API_KEY')} ---")
