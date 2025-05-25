@@ -43,7 +43,8 @@ dist/
 ####################################
 # Virtual Environment              #
 ####################################
-backend/.venv/ 
+.venv/ # If your venv is at the project root
+backend/.venv/ # If your venv is inside backend/
 # Add other common venv names if you use them:
 # venv/
 # env/

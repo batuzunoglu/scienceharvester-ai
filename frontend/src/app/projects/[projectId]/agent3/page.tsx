@@ -164,7 +164,7 @@ export default function Agent3ReportPage() {
         es.close(); 
       };
 
-    } catch { // Removed unused 'e'
+    } catch (_error) { // Modified to catch (_error)
         console.error("Failed to initialize EventSource:");
         setGenerationError("Failed to connect to the report generation service.");
         setIsGenerating(false);
@@ -299,7 +299,7 @@ export default function Agent3ReportPage() {
         </Card>
       )}
        {!markdownReport && !isGenerating && !isPreloading && !preloadError && currentProjectId && streamLog.length <=1 && (
-        <p className="text-muted-foreground mt-4 text-center">No report generated yet for this project. Click Generate Full Report to start.</p>
+        <p className="text-muted-foreground mt-4 text-center">No report generated yet for this project. Click "Generate Full Report" to start.</p>
       )}
     </div>
   );
