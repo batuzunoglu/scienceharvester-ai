@@ -69,7 +69,7 @@ interface ProjectsContextValue {
 
 // --- CONTEXT DEFINITION ---
 const ProjectsContext = createContext<ProjectsContextValue | null>(null);
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
 // --- PROVIDER COMPONENT ---
 export function ProjectsProvider({ children }: { children: React.ReactNode }) {

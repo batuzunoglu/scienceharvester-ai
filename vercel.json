@@ -1,0 +1,23 @@
+{
+    "version": 2,
+    "builds": [
+      {
+        "src": "frontend/next.config.js", // Or .mjs if that's what you have
+        "use": "@vercel/next"
+      },
+      {
+        "src": "backend/main.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/(.*)", // All requests to /api/...
+        "dest": "backend/main.py" // Route them to your Python backend
+      },
+      {
+        "src": "/(.*)", // All other requests
+        "dest": "frontend/$1" // Route them to your Next.js frontend
+      }
+    ]
+  }

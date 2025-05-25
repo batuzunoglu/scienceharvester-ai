@@ -16,7 +16,7 @@ const Spinner = ({ size = 16, className = '' }: { size?: number; className?: str
   <Loader2 style={{ width: size, height: size }} className={`animate-spin ${className}`} />
 );
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
 export default function Agent3ReportPage() {
   const params = useParams();

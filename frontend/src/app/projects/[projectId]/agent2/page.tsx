@@ -10,7 +10,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/Spinner';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
 export default function Agent2Page() {
   const { projectId: rawProjectId } = useParams();

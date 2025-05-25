@@ -90,7 +90,7 @@ export default function Agent1Page() {
 
                 if (projectDetails.agent1_metadata_file) {
                     setLogs(prev => [...prev, `ℹ️ Previous Agent 1 data found. Fetching: ${projectDetails.agent1_metadata_file}`]);
-                    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+                    const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
                     const fileUrl = `${apiUrl}/api/projects/${currentProjectId}/files?file_key=agent1_metadata_file`;
                     
                     const response = await fetch(fileUrl);
@@ -148,7 +148,7 @@ export default function Agent1Page() {
             project_id: currentProjectId, 
         });
 
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || '';
         const url = `${apiUrl}/api/agent1/harvest/stream?${params.toString()}`;
         setLogs(prev => [...prev, `🔌 Connecting to stream: ${url}`]);
 
