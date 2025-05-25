@@ -2,19 +2,29 @@
   "version": 2,
   "builds": [
     {
-      "src": "frontend/next.config.js",
+      "src": "frontend/package.json",
       "use": "@vercel/next",
-      "config": { "zeroConfig": true } 
+      "config": {
+        "distDir": "frontend/.next" 
+      }
     },
     {
       "src": "backend/main.py",
-      "use": "@vercel/python"
+      "use": "@vercel/python",
+      "config": {
+        "maxLambdaSize": "50mb" 
+      }
     }
   ],
-  "rewrites": [ 
+  "routes": [
     {
-      "source": "/api/:match*",
-      "destination": "/backend/main.py" 
+      "src": "/api/(.*)",         
+      "dest": "/backend/main.py"  
+                                   
+    },
+
+    {
+      "handle": "filesystem"
     }
 
   ]
