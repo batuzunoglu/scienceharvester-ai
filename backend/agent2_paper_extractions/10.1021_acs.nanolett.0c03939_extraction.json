@@ -1,0 +1,100 @@
+{
+  "filename": "10.1021_acs.nanolett.0c03939.pdf",
+  "technical_features": [
+    {
+      "feature_name": "Core/Shell QD Structure",
+      "feature_value": "Type I core/shell with alloyed intermediate shell",
+      "feature_unit": null,
+      "source_sentence": "High-quality type I core/shell QDs... preferred for EL devices because of their excellent stability and high photoluminescence quantum yield."
+    },
+    {
+      "feature_name": "External Quantum Efficiency (EQE) for Red QLEDs",
+      "feature_value": 21.4,
+      "feature_unit": "%",
+      "source_sentence": "InP/ZnSe/ZnS red QLEDs showed an outstanding EQE of 21.4%."
+    },
+    {
+      "feature_name": "Maximum Luminance for Red QLEDs",
+      "feature_value": 100000,
+      "feature_unit": "cd/m²",
+      "source_sentence": "InP/ZnSe/ZnS red QLEDs... maximum luminance of 100,000 cd/m²."
+    },
+    {
+      "feature_name": "Peak Wavelength for Red QLEDs",
+      "feature_value": 630,
+      "feature_unit": "nm",
+      "source_sentence": "red InP 630 nm"
+    },
+    {
+      "feature_name": "Quantum Yield (QY) for Red QLEDs",
+      "feature_value": 100,
+      "feature_unit": "%",
+      "source_sentence": "QY (%) 100"
+    },
+    {
+      "feature_name": "Device Thickness",
+      "feature_value": "<3",
+      "feature_unit": "μm",
+      "source_sentence": "entire thickness is <3 μm including encapsulation layers"
+    },
+    {
+      "feature_name": "Patterning Resolution",
+      "feature_value": 413,
+      "feature_unit": "ppi",
+      "source_sentence": "demonstrated a 4″-scale flexible full-color QD display by combining 413 ppi RGB QLEDs"
+    },
+    {
+      "feature_name": "Electrohydrodynamic Jet Printing Line Width",
+      "feature_value": "~5",
+      "feature_unit": "μm",
+      "source_sentence": "printed patterns using red and green QDs exhibited a uniform line thickness and a narrow width (~5 μm)"
+    },
+    {
+      "feature_name": "Charge Transport Layer Material",
+      "feature_value": [
+        "ZnO nanoparticles (ETL)",
+        "organic HTL"
+      ],
+      "feature_unit": null,
+      "source_sentence": "ZnO nanoparticle (NP)-based electron transport layers (ETLs) and the organic hole transport layers (HTLs) are commonly employed."
+    },
+    {
+      "feature_name": "Heavy-Metal-Free Blue QLED Efficiency",
+      "feature_value": 20.2,
+      "feature_unit": "%",
+      "source_sentence": "blue-emitting heavy-metal-free QLEDs with an EQE of ~20% have been reported using ZnSeTe/ZnS QDs"
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "To present state-of-the-art material, process, and device technologies for achieving full-color quantum dot light-emitting diode (QLED)-based displays using electroluminescence.",
+    "key_materials_studied": [
+      "InP/ZnSe/ZnS quantum dots (QDs)",
+      "ZnSeTe/ZnS QDs",
+      "Cd-chalcogenide QDs",
+      "ZnO and Mg-doped ZnO nanoparticles",
+      "Organic hole transport layers (HTLs)"
+    ],
+    "key_methodology_summary": "Combination of core-shell quantum dot synthesis, device structure optimization (e.g., electron/hole transport layer engineering), and advanced patterning techniques including photolithography, inkjet printing, and transfer printing methods.",
+    "primary_findings_conclusions": [
+      "Heavy-metal-free red InP QLEDs achieved 21.4% external quantum efficiency (EQE) comparable to Cd-based devices",
+      "Blue ZnSeTe QLEDs demonstrated 20.2% EQE with 88,900 cd/m² brightness",
+      "Intaglio transfer printing enabled 3000 ppi resolution for VR/AR applications",
+      "Ultrathin (<3 μm) flexible QLEDs maintained performance at bending radii <3 mm",
+      "Pixelated white QLEDs showed 2× higher luminance than mixed QD approaches"
+    ],
+    "limitations_discussed_by_authors": [
+      "Efficiency limitations in green-emitting InP QLEDs (13.6% EQE vs 21.4% for red)",
+      "Challenges in large-scale production of patterned EL devices",
+      "Rarity of indium (0.1 ppm crust abundance) for InP QDs",
+      "Interparticle energy transfer in mixed QD systems causing efficiency loss"
+    ],
+    "future_work_suggested_by_authors": [
+      "Development of earth-abundant alternatives to InP QDs",
+      "Fundamental studies on efficiency roll-off mechanisms",
+      "Organic additive-free large-area printing techniques",
+      "Integration with next-gen AR/VR and 3D display systems"
+    ],
+    "novelty_significance_claim": "First demonstration of 4-inch flexible full-color QLED display with 413 ppi resolution using transfer-printed InP QDs, achieving commercial-grade performance without toxic cadmium.",
+    "key_tables_figures_present": "Figure 1 (Material/device designs), Table 1 (Heavy-metal-free QLED performance), Figure 3 (Patterned QLED applications)"
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "filename": "10.1088_2752-5724_ad3a83.pdf",
+  "error": null,
+  "technical_features": [
+    {
+      "feature_name": "External Quantum Efficiency (EQE)",
+      "feature_value": 12.74,
+      "feature_unit": "%",
+      "source_sentence": "The corresponding green-emitting electroluminescence devices exhibited a maximum EQE of 12.74%, along with a luminance of over 175 000 cd m⁻² and a long T₅₀@100 cd m⁻² lifetime of over 20 000 h."
+    },
+    {
+      "feature_name": "Peak Luminance",
+      "feature_value": 175084,
+      "feature_unit": "cd/m²",
+      "source_sentence": "The corresponding green-emitting electroluminescence devices exhibited a maximum EQE of 12.74%, along with a luminance of over 175 000 cd m⁻² and a long T₅₀@100 cd m⁻² lifetime of over 20 000 h."
+    },
+    {
+      "feature_name": "Operational Lifetime (T₅₀@100 cd/m²)",
+      "feature_value": 20044,
+      "feature_unit": "hours",
+      "source_sentence": "The corresponding green-emitting electroluminescence devices exhibited a maximum EQE of 12.74%, along with a luminance of over 175 000 cd m⁻² and a long T₅₀@100 cd m⁻² lifetime of over 20 000 h."
+    },
+    {
+      "feature_name": "Photoluminescence Quantum Yield (PL QY)",
+      "feature_value": 91,
+      "feature_unit": "%",
+      "source_sentence": "The resultant InP/ZnSe/ZnS core/shell QDs demonstrated a high PL QY of 91%."
+    },
+    {
+      "feature_name": "PL Peak Wavelength",
+      "feature_value": 534,
+      "feature_unit": "nm",
+      "source_sentence": "The resultant InP/ZnSe/ZnS core/shell QDs demonstrated a high PL QY of 91%."
+    },
+    {
+      "feature_name": "Full Width at Half Maximum (FWHM)",
+      "feature_value": 44,
+      "feature_unit": "nm",
+      "source_sentence": "QDs with ZnMy₂ demonstrate an improved optical property with a high PLQY of 91% and an FWHM of 44 nm."
+    },
+    {
+      "feature_name": "QD Average Size",
+      "feature_value": 8.1,
+      "feature_unit": "nm",
+      "source_sentence": "The average size for the as-prepared core/shell/shell QD with ZnMy₂ is estimated to be 8.1 ± 1.0 nm with better size distribution."
+    },
+    {
+      "feature_name": "Turn-on Voltage",
+      "feature_value": 2.0,
+      "feature_unit": "V",
+      "source_sentence": "The device with ZnMy₂ exhibits a smaller turn-on voltage (2.0 V) than that of the device without ZnMy₂ (2.2 V)."
+    },
+    {
+      "feature_name": "Current Efficiency",
+      "feature_value": 54.56,
+      "feature_unit": "cd/A",
+      "source_sentence": "The corresponding green-emitting electroluminescence devices exhibited a maximum EQE of 12.74%, along with a luminance of over 175 000 cd m⁻² and a long T₅₀@100 cd m⁻² lifetime of over 20 000 h."
+    },
+    {
+      "feature_name": "Surface Oxide Reduction (P-O)",
+      "feature_value": "14% P-O area ratio",
+      "feature_unit": null,
+      "source_sentence": "The area ratio of P–O decreases from 33% for the InP core without ZnMy₂ to 14% for that with ZnMy₂, indicating that ZnMy₂ can react with the surface of InP core and inhibit the development of the InPOₓ surface oxide layer."
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Improve the efficiency and stability of green InP-based quantum dot light-emitting diodes (QLEDs) through in-situ passivation of InP core surfaces with zinc myristate (ZnMy₂)",
+    "key_materials_studied": [
+      "InP/ZnSe/ZnS core/shell quantum dots",
+      "zinc myristate (ZnMy₂)"
+    ],
+    "key_methodology_summary": "Fluoride-free synthesis strategy where ZnMy₂ reacts with phosphine dangling bonds on InP cores to form a Zn-P protective layer, followed by ZnSe/ZnS shell growth to reduce surface oxidation and defects",
+    "primary_findings_conclusions": [
+      "Achieved 91% photoluminescence quantum yield (PL QY) in InP/ZnSe/ZnS QDs",
+      "QLEDs demonstrated 12.74% maximum external quantum efficiency (EQE)",
+      "Record luminance of 175,084 cd/m² for green InP-based QLEDs",
+      "Operational lifetime (T₅₀@100 cd/m²) exceeding 20,000 hours"
+    ],
+    "limitations_discussed_by_authors": null,
+    "future_work_suggested_by_authors": [
+      "Further performance improvements for green InP-based QLED commercialization"
+    ],
+    "novelty_significance_claim": "First demonstration of fluoride-free ZnMy₂ treatment for InP core passivation, enabling safer synthesis and superior device performance compared to HF-based methods",
+    "key_tables_figures_present": "Figure 3 (device performance metrics), Table 1 (summary of QLED parameters including EQE, luminance, and lifetime)"
+  }
+}

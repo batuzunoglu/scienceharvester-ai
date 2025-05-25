@@ -1,0 +1,111 @@
+{
+  "filename": "10.1021_acs.nanolett.0c03939.pdf",
+  "error": null,
+  "technical_features": [
+    {
+      "feature_name": "External Quantum Efficiency (Red QLED)",
+      "feature_value": 21.4,
+      "feature_unit": "%",
+      "source_sentence": "The device showed an outstanding EQE of 21.4%, which is comparable to that of the best Cd-chalcogenide-based QLEDs (Figure 1f)."
+    },
+    {
+      "feature_name": "Maximum Luminance (Red QLED)",
+      "feature_value": 100000,
+      "feature_unit": "cd/m²",
+      "source_sentence": "InP/ZnSe/ZnS red QLEDs [...] showed high external quantum efficiency (EQE) similar to their theoretical limits as well as high brightness with low turn-on voltages."
+    },
+    {
+      "feature_name": "External Quantum Efficiency (Green QLED)",
+      "feature_value": 13.6,
+      "feature_unit": "%",
+      "source_sentence": "High-efficiency green-emitting InP QLEDs have been reported [...] with an EQE of 13.6%."
+    },
+    {
+      "feature_name": "Maximum Luminance (Green QLED)",
+      "feature_value": 13900,
+      "feature_unit": "cd/m²",
+      "source_sentence": "Green InP QLEDs [...] demonstrated a maximum luminance of 13,900 cd/m²."
+    },
+    {
+      "feature_name": "External Quantum Efficiency (Blue QLED)",
+      "feature_value": 20.2,
+      "feature_unit": "%",
+      "source_sentence": "Blue-emitting heavy-metal-free QLEDs with an EQE of ∼20% have been reported using ZnSeTe/ZnS QDs."
+    },
+    {
+      "feature_name": "Maximum Luminance (Blue QLED)",
+      "feature_value": 88900,
+      "feature_unit": "cd/m²",
+      "source_sentence": "ZnSeTe blue QLEDs achieved a maximum luminance of 88,900 cd/m²."
+    },
+    {
+      "feature_name": "Device Thickness",
+      "feature_value": 3,
+      "feature_unit": "μm",
+      "source_sentence": "QLEDs could be fabricated as an ultrathin-type device whose entire thickness is <3 μm including encapsulation layers."
+    },
+    {
+      "feature_name": "Pixel Resolution",
+      "feature_value": 413,
+      "feature_unit": "ppi",
+      "source_sentence": "Samsung Advanced Institute of Technology demonstrated a 4″-scale flexible full-color QD display by combining 413 ppi RGB QLEDs with an oxide transistor array."
+    },
+    {
+      "feature_name": "Photoluminescence Quantum Yield (CdSe/ZnS QDs)",
+      "feature_value": "70-100",
+      "feature_unit": "%",
+      "source_sentence": "High-quality type I core/shell QDs [...] exhibit [...] high-photoluminescence quantum yield (PLQY, typically 70–100% for CdSe/ZnS QDs)."
+    },
+    {
+      "feature_name": "Spectral Emission Width",
+      "feature_value": 25,
+      "feature_unit": "nm",
+      "source_sentence": "The spectral width being 25 nm is just narrow enough to enable nearly visually indistinguishable color gamut from laser displays."
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Advance development of full-color electroluminescent quantum dot displays by improving QLED performance and patterning techniques",
+    "key_materials_studied": [
+      "Colloidal quantum dots (QDs)",
+      "InP (red/green emission)",
+      "ZnSeTe/ZnS (blue emission)",
+      "Core-shell structures (e.g., InP/ZnSe/ZnS)"
+    ],
+    "key_methodology_summary": [
+      "QD synthesis optimization (core-shell engineering, surface passivation)",
+      "Device structure design (ZnO NP electron transport layers, organic hole transport layers)",
+      "Charge injection balancing",
+      "Patterning techniques: photolithography, inkjet printing, transfer printing"
+    ],
+    "primary_findings_conclusions": [
+      "Achieved 21.4% EQE in InP red QLEDs and 20.2% EQE in ZnSeTe blue QLEDs",
+      "Demonstrated pixelated RGB arrays via transfer printing",
+      "Developed ultrathin (<3 μm) flexible/wearable devices",
+      "Identified inter-QD energy transfer as key challenge for white emission"
+    ],
+    "limitations_discussed_by_authors": [
+      "Lower efficiency in green InP QLEDs vs red/blue",
+      "Indium scarcity for sustainable production",
+      "Organic residues from photolithography",
+      "Scalability challenges in patterning techniques"
+    ],
+    "future_work_suggested_by_authors": [
+      "Improve green QLED efficiency",
+      "Develop earth-abundant materials",
+      "Understand efficiency roll-off mechanisms",
+      "Refine large-scale patterning methods"
+    ],
+    "novelty_significance_claim": [
+      "First demonstration of heavy-metal-free QLEDs with near-theoretical efficiencies",
+      "Ultra-thin (<3 μm) form factor enables wearable integration",
+      "High-resolution patterning (413 ppi demonstrated)",
+      "Potential for VR/AR displays matching human eye resolution"
+    ],
+    "key_tables_figures_present": [
+      "Table 1: Performance metrics of heavy-metal-free QLEDs",
+      "Figure 1: Device architectures and efficiency progress",
+      "Figure 2: Patterning techniques comparison",
+      "Figure 3: Application examples in flexible/wearable devices"
+    ]
+  }
+}

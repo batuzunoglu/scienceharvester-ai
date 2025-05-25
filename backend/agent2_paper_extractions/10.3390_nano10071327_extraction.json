@@ -1,0 +1,94 @@
+{
+  "filename": "10.3390_nano10071327.pdf",
+  "technical_features": [
+    {
+      "feature_name": "color gamut (NTSC)",
+      "feature_value": 104.8,
+      "feature_unit": "%",
+      "source_sentence": "The color gamut of the final QD-NR-µLED device was reported to be 104.8% and 78.2% according to NTSC and Rec. 2020 standards, respectively, as depicted in Figure 2b."
+    },
+    {
+      "feature_name": "color gamut (Rec. 2020)",
+      "feature_value": 78.2,
+      "feature_unit": "%",
+      "source_sentence": "The color gamut of the final QD-NR-µLED device was reported to be 104.8% and 78.2% according to NTSC and Rec. 2020 standards, respectively, as depicted in Figure 2b."
+    },
+    {
+      "feature_name": "light conversion efficiency (green QDs)",
+      "feature_value": 90,
+      "feature_unit": "%",
+      "source_sentence": "The LCE of the green QD layer reached ∼90% at 10.2 µm thickness."
+    },
+    {
+      "feature_name": "light conversion efficiency (red QDs)",
+      "feature_value": 33,
+      "feature_unit": "%",
+      "source_sentence": "∼33% for red QDs at 10.5 µm thickness."
+    },
+    {
+      "feature_name": "QD layer thickness (green)",
+      "feature_value": 10.2,
+      "feature_unit": "µm",
+      "source_sentence": "The LCE of the green QD layer reached ∼90% at 10.2 µm thickness."
+    },
+    {
+      "feature_name": "QD layer thickness (red)",
+      "feature_value": 10.5,
+      "feature_unit": "µm",
+      "source_sentence": "∼33% for red QDs at 10.5 µm thickness."
+    },
+    {
+      "feature_name": "emission linewidth (FWHM)",
+      "feature_value": 40,
+      "feature_unit": "nm",
+      "source_sentence": "QDs have discrete electronic states, like those of natural atoms, and their electronic wavefunction is somewhat analogous to that of a real atom."
+    },
+    {
+      "feature_name": "semi-polar µLED color gamut (NTSC)",
+      "feature_value": 114.4,
+      "feature_unit": "%",
+      "source_sentence": "Semi-polar devices demonstrate a wide color gamut of 114.4% NTSC and 85.4% Rec. 2020."
+    },
+    {
+      "feature_name": "semi-polar µLED color gamut (Rec. 2020)",
+      "feature_value": 85.4,
+      "feature_unit": "%",
+      "source_sentence": "Semi-polar devices demonstrate a wide color gamut of 114.4% NTSC and 85.4% Rec. 2020."
+    },
+    {
+      "feature_name": "QD-OLED color gamut (BT.2020)",
+      "feature_value": 95,
+      "feature_unit": "%",
+      "source_sentence": "The color gamut of the QD-OLED could reach ∼95% according to the BT 2020 standard."
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Review advancements in quantum-dot (QD)-based display technologies, focusing on materials, methodologies for QD integration, and applications in high-efficiency LEDs and micro-LED displays.",
+    "key_materials_studied": [
+      "Cadmium selenide (CdSe) quantum dots",
+      "Indium phosphide (InP) quantum dots",
+      "Perovskite quantum dots (PQDs)",
+      "QD-based photoresist (QDPR)",
+      "TiO₂ scattering particles"
+    ],
+    "key_methodology_summary": "Utilization of QDs as color converters in LED backlights and micro-LED displays via techniques such as inkjet printing, aerosol jet printing, and photolithographic patterning. Encapsulation methods and surface engineering to enhance QD stability, particularly for PQDs.",
+    "primary_findings_conclusions": [
+      "QD-LEDs achieve high color purity (FWHM ~25–40 nm) and wide color gamut (up to 114.4% NTSC).",
+      "Perovskite QDs exhibit high photoluminescence quantum yield but require stability improvements.",
+      "Inkjet and aerosol jet printing enable precise QD patterning with linewidths as low as 1.65 µm.",
+      "QD-based photoresist (QDPR) combined with TiO₂ reduces cross-talk and enhances light absorption efficiency."
+    ],
+    "limitations_discussed_by_authors": [
+      "Environmental instability of PQDs under heat, moisture, and radiation.",
+      "Non-uniform QD deposition using spray coating methods.",
+      "Complex integration of multi-color QDs in micro-LED arrays."
+    ],
+    "future_work_suggested_by_authors": [
+      "Development of stable PQDs via surface ligand engineering and encapsulation.",
+      "Simplification of QD deposition techniques for large-scale production.",
+      "Exploration of flexible substrates for wearable and transparent displays."
+    ],
+    "novelty_significance_claim": "QD-based displays offer superior color accuracy, energy efficiency, and scalability compared to traditional LCD/OLED technologies, with PQDs representing a breakthrough in tunable emission and cost-effectiveness.",
+    "key_tables_figures_present": "Figures include EL spectra, SEM/TEM images of QD structures, and CIE color gamut comparisons (e.g., Figures 1–6). Tables summarize developmental milestones in QD patterning technologies."
+  }
+}

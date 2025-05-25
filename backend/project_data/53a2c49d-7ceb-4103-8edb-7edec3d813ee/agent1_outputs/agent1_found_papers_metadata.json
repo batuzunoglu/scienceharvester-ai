@@ -1,0 +1,39 @@
+{
+  "project_topic": "quantum dot displays",
+  "date_filter_used": "2020-01-01 to 2025-05-22",
+  "max_papers_requested": 2,
+  "project_keywords": {
+    "material_keywords": [],
+    "synthesis_keywords": [],
+    "performance_keywords": [],
+    "characterization_keywords": []
+  },
+  "papers": [
+    {
+      "id": 1,
+      "title": "Highly efficient light-emitting diodes via self-assembled InP quantum dot films",
+      "authors": [],
+      "publication_year": 2025,
+      "doi": "10.1038/s41565-025-01705-2",
+      "journal_name": "Nature Nanotechnology",
+      "abstract_snippet": "Heavy-metal-free quantum dot light-emitting diodes (QLEDs) face commercialization challenges due to low efficiency and poor stability... evaporative-driven self-assembly strategy enables uniform InP-based quantum dot films achieving 26.6% external quantum efficiency.",
+      "relevance_explanation_from_llm": "Demonstrates advancements in environmentally friendly InP-based QLEDs through novel film fabrication methods, directly addressing quantum dot display technology challenges.",
+      "landing_page_url": "https://doi.org/10.1038/s41565-025-01705-2",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1038_s41565-025-01705-2.pdf"
+    },
+    {
+      "id": 2,
+      "title": "Ultrabright and stable top-emitting quantum-dot light-emitting diodes",
+      "authors": [],
+      "publication_year": 2024,
+      "doi": "10.1038/s41565-024-01687-1",
+      "journal_name": "Nature Nanotechnology",
+      "abstract_snippet": "Top-emitting QLEDs with luminance exceeding 1.6 million nits through optimized microcavity design and refractive index engineering.",
+      "relevance_explanation_from_llm": "Presents breakthrough performance metrics for top-emitting QLED architectures critical for next-generation display applications.",
+      "landing_page_url": "https://doi.org/10.1038/s41565-024-01687-1",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1038_s41565-024-01687-1.pdf"
+    }
+  ]
+}

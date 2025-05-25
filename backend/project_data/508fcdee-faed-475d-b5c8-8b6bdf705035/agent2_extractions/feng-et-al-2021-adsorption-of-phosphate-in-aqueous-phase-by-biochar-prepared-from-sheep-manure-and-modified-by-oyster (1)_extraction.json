@@ -1,0 +1,102 @@
+{
+  "filename": "feng-et-al-2021-adsorption-of-phosphate-in-aqueous-phase-by-biochar-prepared-from-sheep-manure-and-modified-by-oyster (1).pdf",
+  "error": null,
+  "technical_features": [
+    {
+      "feature_name": "Maximum adsorption capacity (Langmuir)",
+      "feature_value": 146.28,
+      "feature_unit": "mg P/g",
+      "source_sentence": "The maximum adsorption capacity obtained from Langmuir fitting was equal to 146.28 mg P/g."
+    },
+    {
+      "feature_name": "Freundlich 1/n value",
+      "feature_value": 0.41,
+      "feature_unit": null,
+      "source_sentence": "Our 1/n value obtained for phosphate adsorption by BC-5 was equal to 0.41."
+    },
+    {
+      "feature_name": "Sips model maximum capacity",
+      "feature_value": 121.29,
+      "feature_unit": "mg P/g",
+      "source_sentence": "Sips q (mg P/g) 121.29"
+    },
+    {
+      "feature_name": "Surface area (BET)",
+      "feature_value": 4.7357,
+      "feature_unit": "m²/g",
+      "source_sentence": "BC-5 4.7357 0.0139 10.1599"
+    },
+    {
+      "feature_name": "Pore volume",
+      "feature_value": 0.0139,
+      "feature_unit": "cm³/g",
+      "source_sentence": "BC-5 4.7357 0.0139 10.1599"
+    },
+    {
+      "feature_name": "Calcium content in BC-5",
+      "feature_value": 7.72,
+      "feature_unit": "%",
+      "source_sentence": "The Ca content in the BC-5 sample was 7.72%."
+    },
+    {
+      "feature_name": "Phosphorus content after adsorption",
+      "feature_value": 3.84,
+      "feature_unit": "%",
+      "source_sentence": "After BC-5 adsorbed phosphate, the P content increased from 0.21 to 3.84%."
+    },
+    {
+      "feature_name": "Optimal pH range",
+      "feature_value": "7-11",
+      "feature_unit": null,
+      "source_sentence": "At pH values below 7, the BC-5 capacity was 65 mg P/g, while above 7 it was 89.50−93.33 mg P/g."
+    },
+    {
+      "feature_name": "Adsorption efficiency at 50 mg P/L",
+      "feature_value": 94,
+      "feature_unit": "%",
+      "source_sentence": "At 50 mg P/L, our composite biochar samples’ adsorption capacities were in the 28.92−47.00 mg P/g range. At the same time, the adsorption efficiency of the BC-5 sample was the highest and equal to 94.00%."
+    },
+    {
+      "feature_name": "Pseudo-second-order kinetic equilibrium capacity",
+      "feature_value": 102.84,
+      "feature_unit": "mg P/g",
+      "source_sentence": "pseudo-second-order dynamic equation q_e (mg P/g) 102.84"
+    },
+    {
+      "feature_name": "Main adsorption mechanism",
+      "feature_value": "Calcium-phosphate complexation",
+      "feature_unit": null,
+      "source_sentence": "The adsorption occurred mainly by complexation."
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Develop Ca-enriched biochar from sheep manure and oyster shells for efficient phosphate adsorption in wastewater treatment",
+    "key_materials_studied": [
+      "Sheep manure",
+      "Oyster shells",
+      "Hydrochloric acid-modified biochar"
+    ],
+    "key_methodology_summary": "Pyrolysis at 500°C under N₂ atmosphere, Ca-modification using oyster shell/HCl solution, adsorption experiments with varying pH/ion conditions",
+    "primary_findings_conclusions": [
+      "Maximum adsorption capacity of 146.28 mg P/g (Langmuir model)",
+      "94% removal efficiency at optimal conditions",
+      "Primary mechanism: Ca²⁺-PO₄³⁻ complexation forming hydroxyapatite"
+    ],
+    "limitations_discussed_by_authors": [
+      "Requires alkaline conditions (pH >7) for optimal performance",
+      "Interference from NO₃⁻ and SO₄²⁻ anions reduces efficiency"
+    ],
+    "future_work_suggested_by_authors": [
+      "Scale-up production for practical applications",
+      "Test performance in real wastewater systems",
+      "Investigate regeneration/reuse potential"
+    ],
+    "novelty_significance_claim": "First use of oyster shell waste as calcium source for biochar modification, creating circular economy solution for agricultural waste",
+    "key_tables_figures_present": [
+      "SEM/EDS images showing Ca distribution",
+      "FTIR/XRD spectra confirming reaction mechanisms",
+      "Langmuir adsorption isotherms",
+      "pH/anion interference charts"
+    ]
+  }
+}

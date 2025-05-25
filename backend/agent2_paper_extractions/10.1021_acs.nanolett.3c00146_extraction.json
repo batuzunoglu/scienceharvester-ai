@@ -1,0 +1,72 @@
+{
+  "filename": "10.1021_acs.nanolett.3c00146.pdf",
+  "technical_features": [
+    {
+      "feature_name": "external quantum efficiency (EQE)",
+      "feature_value": [
+        19.1,
+        17.5,
+        12.0
+      ],
+      "feature_unit": "%",
+      "source_sentence": "CELS-patterned QLEDs show remarkable external quantum efficiencies (19.1%, 17.5%, 12.0% for red, green, blue, respectively) and a long operation lifetime."
+    },
+    {
+      "feature_name": "operational lifetime (T95)",
+      "feature_value": 8700,
+      "feature_unit": "hours",
+      "source_sentence": "a long operation lifetime (T95 at 1000 nits up to 8700 h)."
+    },
+    {
+      "feature_name": "patterning resolution",
+      "feature_value": 4,
+      "feature_unit": "μm",
+      "source_sentence": "producing patterns at microscale precision."
+    },
+    {
+      "feature_name": "photoluminescent quantum yield (PLQY) retention",
+      "feature_value": "preserved",
+      "feature_unit": null,
+      "source_sentence": "Chloride anions passivate surface defects and endow patterned quantum dots with preserved photoluminescent quantum yields."
+    },
+    {
+      "feature_name": "surface chlorination",
+      "feature_value": "Cl⁻ passivation",
+      "feature_unit": null,
+      "source_sentence": "Cl⁻ anions passivate surface defects and endow patterned quantum dots with preserved photoluminescent quantum yields."
+    },
+    {
+      "feature_name": "material compatibility",
+      "feature_value": [
+        "cadmium-based QDs",
+        "heavy-metal-free QDs"
+      ],
+      "feature_unit": null,
+      "source_sentence": "It works for both cadmium-based and heavy-metal-free quantum dots."
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Develop a light-triggered, carbocation-enabled ligand stripping (CELS) method to pattern quantum dot light-emitting diodes (QLEDs) with high efficiency and stability, bridging the performance gap between patterned and non-patterned devices.",
+    "key_materials_studied": [
+      "Cadmium-based quantum dots (CdZnSe/CdZnS/ZnS)",
+      "Heavy-metal-free quantum dots (InP/ZnS, ZnSe/ZnS)",
+      "Triphenylmethyl chloride (TPCl) as a photosensitive additive"
+    ],
+    "key_methodology_summary": "CELS uses UV light to photogenerate carbocations (TP⁺) and chloride anions (Cl⁻) from TPCl. TP⁺ strips native ligands from QDs to enable high-resolution patterning, while Cl⁻ passivates surface defects. The process involves film coating, UV exposure via photomasks, and developer solvent removal of unexposed QDs.",
+    "primary_findings_conclusions": [
+      "CELS-patterned QLEDs achieved record external quantum efficiencies (19.1% red, 17.5% green, 12.0% blue) and operational lifetimes (T₉₅ at 1000 nits up to 8700 hours).",
+      "Surface chlorination by Cl⁻ preserved photoluminescent quantum yields (PLQYs) and improved photostability.",
+      "The method works for both cadmium-based and heavy-metal-free QDs with resolutions down to ~4 μm."
+    ],
+    "limitations_discussed_by_authors": [
+      "Blue QLEDs showed lower PLQY retention (62%) compared to red (100%) and green (85%).",
+      "Resolution limited to ~4 μm, potentially insufficient for ultra-high-definition displays."
+    ],
+    "future_work_suggested_by_authors": [
+      "Exploring alternative photosensitive chemicals with similar reaction mechanisms to improve patterning capabilities.",
+      "Integration with optimized QD materials and device architectures for commercial displays."
+    ],
+    "novelty_significance_claim": "CELS represents a material-tailored photopatterning approach that achieves patterned QLEDs with performance comparable to state-of-the-art nonpatterned devices, addressing a critical bottleneck in display commercialization.",
+    "key_tables_figures_present": "Figure 5 (EL characteristics), Figure 4 (PL properties and DFT analysis), Tables S1-S4 (performance comparisons)."
+  }
+}

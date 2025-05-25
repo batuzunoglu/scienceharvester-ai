@@ -1,0 +1,44 @@
+{
+  "project_topic": "quantum dot displays",
+  "date_filter_used": "2020-01-01 to 2025-05-21",
+  "max_papers_requested": 2,
+  "project_keywords": {
+    "material_keywords": [],
+    "synthesis_keywords": [],
+    "performance_keywords": [],
+    "characterization_keywords": []
+  },
+  "papers": [
+    {
+      "id": 1,
+      "title": "Technology progress on quantum dot light-emitting diodes for next-generation displays",
+      "authors": [],
+      "publication_year": 2021,
+      "doi": "10.1039/D0NH00556H",
+      "journal_name": "Nanoscale Horizons",
+      "abstract_snippet": "This focus article surveys the current progress on the state-of-the-art QD-LED technology including material synthesis, device optimization and innovative fabrication processes. A discussion on the material synthesis of core nanocrystals, shell layers and surface-binding ligands is presented for high photoluminescence quantum yield (PLQY) quantum dots (QDs) using heavy-metal free materials.",
+      "relevance_explanation_from_llm": "Directly addresses quantum dot display technology development for next-generation LED applications, covering material synthesis and device architectures.",
+      "landing_page_url": "https://doi.org/10.1039/D0NH00556H",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1039_D0NH00556H.pdf"
+    },
+    {
+      "id": 2,
+      "title": "Recent Advances and Challenges of Colloidal Quantum Dot Light‐Emitting Diodes for Display Applications",
+      "authors": [
+        "Kim Jaehoon",
+        "Roh Jeongkyun",
+        "Park Myoungjin",
+        "Lee Changhee"
+      ],
+      "publication_year": 2023,
+      "doi": "10.1002/adma.202212220",
+      "journal_name": "Advanced Materials",
+      "abstract_snippet": "Colloidal quantum dots (QDs) exhibit tremendous potential in display technologies owing to their unique optical properties, such as size‐tunable emission wavelength, narrow spectral linewidth, and near‐unity photoluminescence quantum yield. Significant efforts in academia and industry have achieved dramatic improvements in the performance of quantum dot light-emitting diodes.",
+      "relevance_explanation_from_llm": "Provides comprehensive analysis of colloidal QD advancements specifically for display applications, including device optimization challenges.",
+      "landing_page_url": "https://doi.org/10.1002/adma.202212220",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1002_adma.202212220.pdf"
+    }
+  ]
+}

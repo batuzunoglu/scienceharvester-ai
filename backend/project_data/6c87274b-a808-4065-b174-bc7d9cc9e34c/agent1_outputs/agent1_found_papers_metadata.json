@@ -1,0 +1,74 @@
+{
+  "project_topic": "phosphate biochar adsorbent",
+  "date_filter_used": "2020-01-01 to 2025-05-24",
+  "max_papers_requested": 5,
+  "project_keywords": {
+    "material_keywords": [],
+    "synthesis_keywords": [],
+    "performance_keywords": [],
+    "characterization_keywords": []
+  },
+  "papers": [
+    {
+      "id": 1,
+      "title": "Adsorption of Phosphate in Aqueous Phase by Biochar Prepared from Sheep Manure and Oyster Shells",
+      "authors": [
+        "F. R. Oliveira",
+        "A. K. Patel",
+        "D. P. Jaisi",
+        "S. Adhikari",
+        "H. Lu",
+        "S. K. Khanal"
+      ],
+      "publication_year": 2021,
+      "doi": "10.1021/acsomega.1c05191",
+      "journal_name": "ACS Omega",
+      "abstract_snippet": "Phosphate adsorption by Ca-modified biochar could be described as chemical monolayer adsorption. Maximum adsorption capacity reached 146.28 mg P/g through Ca²⁺ reaction with PO₄³⁻. The process showed favorable adsorption characteristics with pseudo-second-order kinetics.",
+      "relevance_explanation_from_llm": "Demonstrates calcium-modified biochar's effectiveness for phosphate adsorption with detailed mechanism analysis",
+      "landing_page_url": "https://doi.org/10.1021/acsomega.1c05191",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1021_acsomega.1c05191.pdf"
+    },
+    {
+      "id": 2,
+      "title": "Significant Improvement of Adsorption for Phosphate Removal by Lanthanum-Loaded Biochar",
+      "authors": [
+        "Li et al."
+      ],
+      "publication_year": 2023,
+      "doi": "10.1021/acsomega.3c00788",
+      "journal_name": "ACS Omega",
+      "abstract_snippet": "Lanthanum-loaded biochar achieved 666.67 mg/g phosphate adsorption capacity through electrostatic attraction and complexation mechanisms. Material showed 75.1% removal efficiency after 5 regeneration cycles.",
+      "relevance_explanation_from_llm": "Presents novel metal-modified biochar with exceptional phosphate adsorption performance and reusability",
+      "landing_page_url": "https://doi.org/10.1021/acsomega.3c00788",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1021_acsomega.3c00788.pdf"
+    },
+    {
+      "id": 4,
+      "title": "Novel Fe/Ca Oxide Co-Embedded Coconut Shell Biochar for Phosphorus Recovery from Agricultural Return Flows",
+      "authors": [],
+      "publication_year": 2024,
+      "doi": "10.1039/d4ra04795h",
+      "journal_name": "RSC Advances",
+      "abstract_snippet": "Fe/Ca oxide co-embedded biochar showed 53.31 mg/g phosphate adsorption capacity through Ca₃(PO₄)₂ precipitation and electrostatic interactions. Effective across pH 6-12 with agricultural wastewater applications.",
+      "relevance_explanation_from_llm": "Demonstrates hybrid metal-biochar composites for sustainable phosphorus recovery in agricultural systems",
+      "landing_page_url": "https://doi.org/10.1039/d4ra04795h",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1039_d4ra04795h.pdf"
+    },
+    {
+      "id": 5,
+      "title": "Adsorption of Phosphate over Novel Magnesium-Loaded Sludge Biochar: Mechanisms and Application Potential",
+      "authors": [],
+      "publication_year": 2024,
+      "doi": "10.1371/journal.pone.0301986",
+      "journal_name": "PLOS ONE",
+      "abstract_snippet": "Mg-modified sludge biochar achieved enhanced phosphate adsorption through MgO crystalline formation and pore structure modification. Showed potential for wastewater treatment applications.",
+      "relevance_explanation_from_llm": "Explores waste-derived biochar modification for sustainable phosphate removal solutions",
+      "landing_page_url": "https://doi.org/10.1371/journal.pone.0301986",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1371_journal.pone.0301986.pdf"
+    }
+  ]
+}

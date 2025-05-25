@@ -1,0 +1,100 @@
+{
+  "filename": "10.1038_s41467-024-49574-6.pdf",
+  "error": null,
+  "technical_features": [
+    {
+      "feature_name": "Maximum Luminance",
+      "feature_value": 1600000,
+      "feature_unit": "cd/m²",
+      "source_sentence": "the optimized device achieves record-breaking performance metrics, including a luminance of 1.6 million nits"
+    },
+    {
+      "feature_name": "Current Efficiency",
+      "feature_value": 204.2,
+      "feature_unit": "cd/A",
+      "source_sentence": "a current efficiency of 204.2 cd A⁻¹"
+    },
+    {
+      "feature_name": "External Quantum Efficiency",
+      "feature_value": 29.2,
+      "feature_unit": "%",
+      "source_sentence": "the EQE of 29.2% is the best for QLEDs without implementing light extraction methods"
+    },
+    {
+      "feature_name": "Operational Lifetime (T50)",
+      "feature_value": 15600,
+      "feature_unit": "hours",
+      "source_sentence": "the TE QLED fabricated using the index-lowering process shows a T50 of 15,600 h at 1000 cd m⁻²"
+    },
+    {
+      "feature_name": "Angular Color Shift",
+      "feature_value": 0.0052,
+      "feature_unit": "Δu'v'",
+      "source_sentence": "an angular color shift of Δu’v’ = 0.0052 from 0° to 60° is achieved by narrowing the emission linewidth of quantum dots"
+    },
+    {
+      "feature_name": "Emission Linewidth (FWHM)",
+      "feature_value": 19.2,
+      "feature_unit": "nm",
+      "source_sentence": "the measured spectrum centers at 537 nm with a full width at half maximum (FWHM) narrowed from 21.5 to 19.2 nm"
+    },
+    {
+      "feature_name": "QD Photoluminescence Quantum Efficiency",
+      "feature_value": [
+        86.2,
+        90.3
+      ],
+      "feature_unit": "%",
+      "source_sentence": "These QDs exhibit an improved photoluminescence quantum efficiency (PLQE) of 86.2% in the solution and an internal PLQE of 90.3% in solid films"
+    },
+    {
+      "feature_name": "Refractive Index Reduction",
+      "feature_value": [
+        0.15,
+        0.17
+      ],
+      "feature_unit": null,
+      "source_sentence": "the refractive indices of emissive QDs and ZnMgO nanoparticles are lowered by 0.15 and 0.17 (λ = 537 nm), respectively"
+    },
+    {
+      "feature_name": "Cavity Length",
+      "feature_value": 268.5,
+      "feature_unit": "nm",
+      "source_sentence": "the short cavity length (λ/2 = 268.5 nm)"
+    },
+    {
+      "feature_name": "Threshold Voltage",
+      "feature_value": 1.9,
+      "feature_unit": "V",
+      "source_sentence": "the J-V curve and the notable sub-threshold turn-on (V = 1.9 V)"
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Develop high-performance top-emitting green quantum-dot light-emitting diodes (QLEDs) with enhanced brightness, efficiency, stability, and negligible angular color shift",
+    "key_materials_studied": [
+      "ZnCdSeS/ZnCdS/ZnS core/shell quantum dots",
+      "ZnMgO nanoparticles",
+      "Ag electrodes"
+    ],
+    "key_methodology_summary": "Combined single-mode optical microcavity design with electrically optimized structures using refractive-index-lowering nanocrystal films and narrow-linewidth QD synthesis",
+    "primary_findings_conclusions": [
+      "Record luminance of 1.6 million nits",
+      "Current efficiency of 204.2 cd A⁻¹",
+      "Operational lifetime (T₉₀) of 15,600 hours at 1000 nits",
+      "29.2% external quantum efficiency without light extraction",
+      "Angular color shift Δu'v' = 0.0052 (0-60°)",
+      "Internal PLQE of 90.3% in solid films"
+    ],
+    "limitations_discussed_by_authors": [
+      "Light extraction methods not yet implemented",
+      "Study focused on green emission only"
+    ],
+    "future_work_suggested_by_authors": [
+      "Integration of microlens arrays/scattering layers",
+      "Extension to blue QLEDs",
+      "Optimization for other colors/applications"
+    ],
+    "novelty_significance_claim": "First demonstration of electrically optimized single-mode green QLEDs combining record efficiency, stability, and angular color performance through refractive-index engineering and narrow-linewidth QDs",
+    "key_tables_figures_present": "Figure 2 (device performance metrics), Figure 3 (angular color shift analysis), Figure 4 (optical-electrical balance optimization)"
+  }
+}

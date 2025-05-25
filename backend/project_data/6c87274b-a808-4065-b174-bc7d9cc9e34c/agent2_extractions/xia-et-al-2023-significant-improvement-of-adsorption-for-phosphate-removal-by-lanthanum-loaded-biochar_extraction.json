@@ -1,0 +1,121 @@
+{
+  "filename": "xia-et-al-2023-significant-improvement-of-adsorption-for-phosphate-removal-by-lanthanum-loaded-biochar.pdf",
+  "error": null,
+  "technical_features": [
+    {
+      "feature_name": "Phosphate adsorption capacity",
+      "feature_value": 666.67,
+      "feature_unit": "mg/g",
+      "source_sentence": "In accordance with adsorption tests, lanthanum-loaded biochar (LCBC) had a significant phosphorus adsorption capacity of approximately 666.67 mg/g, which was 30 times greater than that of pristine biochar."
+    },
+    {
+      "feature_name": "Adsorption kinetic model",
+      "feature_value": "Pseudo-secondary kinetic equation",
+      "feature_unit": null,
+      "source_sentence": "Adsorption kinetic analysis revealed that the LCBC’s adsorption process could be fitted to the pseudo-secondary kinetic equation, indicating that chemical processes were primarily responsible for controlling the adsorption process."
+    },
+    {
+      "feature_name": "Primary adsorption mechanisms",
+      "feature_value": [
+        "Electrostatic attraction",
+        "Complexation reaction"
+      ],
+      "feature_unit": null,
+      "source_sentence": "Zeta potential, Fourier transform infrared spectroscopy, and X-ray photoelectron spectroscopy analysis showed that the main adsorption mechanism of LCBC for phosphate removal was electrostatic attraction of protonated H+ with negatively charged mono-hydrogen phosphate and dihydrogen phosphate ions and complexation reaction of the C═O on the carboxyl group and P═O on the phosphate group with the oxygen on the phosphate group and hydroxyl group."
+    },
+    {
+      "feature_name": "Regeneration performance (5th cycle)",
+      "feature_value": 75.1,
+      "feature_unit": "%",
+      "source_sentence": "According to regeneration performance results, LCBC performed relatively better than as-prepared adsorbents, and the phosphate removal rate was approximately 75.1% after the fifth regeneration cycle."
+    },
+    {
+      "feature_name": "Specific surface area (before adsorption)",
+      "feature_value": 7.14,
+      "feature_unit": "m²/g",
+      "source_sentence": "The specific surface area of BC is 2.786 m²/g, and the maximum can be 48.55 m²/g after modification."
+    },
+    {
+      "feature_name": "Specific surface area (after adsorption)",
+      "feature_value": 130.04,
+      "feature_unit": "m²/g",
+      "source_sentence": "LCBC-P 130.04 0.274 8.43"
+    },
+    {
+      "feature_name": "Pore volume (before adsorption)",
+      "feature_value": 0.017,
+      "feature_unit": "cm³/g",
+      "source_sentence": "LCBC 7.14 0.017 96.16"
+    },
+    {
+      "feature_name": "Pore diameter (before adsorption)",
+      "feature_value": 96.16,
+      "feature_unit": "nm",
+      "source_sentence": "LCBC 7.14 0.017 96.16"
+    },
+    {
+      "feature_name": "pH isoelectric point (pH_iep)",
+      "feature_value": 9.6,
+      "feature_unit": null,
+      "source_sentence": "It can be seen from Figure 10b that the pH of BC and LCBC were 2.98 and 9.60 respectively."
+    },
+    {
+      "feature_name": "Crystalline phases",
+      "feature_value": [
+        "La(OH)₃",
+        "La₂O₃·nH₂O"
+      ],
+      "feature_unit": null,
+      "source_sentence": "While La(OH) was produced in LCBC primarily at 28.108, 39.565, and 47.138°, the diffraction peaks at 15.7° (100), 48.6° (211), and 55.3° (112) demonstrated that hydrated lanthanum oxides were formed in LCBC."
+    },
+    {
+      "feature_name": "FTIR absorption peaks",
+      "feature_value": {
+        "La-O": 513,
+        "O-P-O": 552
+      },
+      "feature_unit": "cm⁻¹",
+      "source_sentence": "LCBC at 720 and 552 cm⁻¹ corresponds to the peaks of La−OH and O−P−O, respectively. Another indication that La was successfully loaded onto biochar is the characteristic peak of LCBC at 513 cm⁻¹, which is associated with the vibration of the La−O bond."
+    },
+    {
+      "feature_name": "XPS La 3d binding energy shift",
+      "feature_value": "834.7 → 835.4 eV / 851.6 → 852.3 eV",
+      "feature_unit": "eV",
+      "source_sentence": "After adsorption, the double peaks of La 3d shift to 835.4 and 838.3 eV, and the peak positions of La 3d were at 852.3 and 855.4 eV. There was clear evidence of the binding energies of 3d and 3d shifting to higher values."
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Enhance phosphate adsorption capacity using lanthanum-loaded biochar for wastewater treatment",
+    "key_materials_studied": [
+      "Tobacco sticks",
+      "Lanthanum chloride heptahydrate",
+      "Ferric chloride hexahydrate",
+      "Zinc chloride"
+    ],
+    "key_methodology_summary": [
+      "Biomass pyrolysis at 400-500°C under nitrogen flow",
+      "Metal chloride impregnation (La, Fe, Zn)",
+      "Characterization via SEM, FTIR, XPS, BET, and XRD",
+      "Batch adsorption experiments with kinetic/isotherm modeling"
+    ],
+    "primary_findings_conclusions": [
+      "LCBC showed 666.67 mg/g phosphate adsorption capacity (30× higher than pristine biochar)",
+      "Adsorption mechanism involved electrostatic attraction and La-O-P complexation",
+      "75.1% regeneration efficiency after 5 cycles",
+      "Optimal performance at acidic pH (3-7)"
+    ],
+    "limitations_discussed_by_authors": [],
+    "future_work_suggested_by_authors": [],
+    "novelty_significance_claim": [
+      "First demonstration of synergistic La(OH)₃/La₂O₃·nH₂O crystal structures in biochar",
+      "Record-high phosphate adsorption capacity among La-modified biochars",
+      "Waste valorization using tobacco stick biomass"
+    ],
+    "key_tables_figures_present": [
+      "SEM images showing honeycomb structure of LCBC",
+      "Langmuir isotherm model (R²=0.9996)",
+      "XPS spectra confirming La-O-P bonding",
+      "Comparison table of adsorption capacities vs literature"
+    ]
+  }
+}

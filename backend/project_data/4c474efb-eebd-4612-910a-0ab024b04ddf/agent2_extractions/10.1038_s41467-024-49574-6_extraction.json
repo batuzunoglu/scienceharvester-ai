@@ -1,0 +1,105 @@
+{
+  "filename": "10.1038_s41467-024-49574-6.pdf",
+  "error": null,
+  "technical_features": [
+    {
+      "feature_name": "Maximum Luminance",
+      "feature_value": 1600000,
+      "feature_unit": "cd/m²",
+      "source_sentence": "The optimized device exhibits a luminance exceeding 1,600,000 cd m⁻² at the bias of 6.5 V."
+    },
+    {
+      "feature_name": "Current Efficiency",
+      "feature_value": 204.2,
+      "feature_unit": "cd/A",
+      "source_sentence": "The CE reaches a maximum value of 204.2 cd A⁻¹."
+    },
+    {
+      "feature_name": "Operational Lifetime (T95)",
+      "feature_value": 15600,
+      "feature_unit": "hours",
+      "source_sentence": "The TE QLED fabricated using the index-lowering process shows a T95 of 15,600 h at 1000 cd m⁻²."
+    },
+    {
+      "feature_name": "External Quantum Efficiency",
+      "feature_value": 29.2,
+      "feature_unit": "%",
+      "source_sentence": "Our TE QLED achieves an EQE value of 29.2%, which is a 1.81-fold enhancement compared to the BE counterpart."
+    },
+    {
+      "feature_name": "Angular Color Shift (Δu'v')",
+      "feature_value": 0.0052,
+      "feature_unit": null,
+      "source_sentence": "An angular color shift of Δu’v’ = 0.0052 from 0° to 60° is achieved by narrowing the emission linewidth of quantum dots."
+    },
+    {
+      "feature_name": "QD Photoluminescence Quantum Efficiency (Solid Film)",
+      "feature_value": 90.3,
+      "feature_unit": "%",
+      "source_sentence": "These QDs exhibit [...] an internal PLQE of 90.3% in solid films."
+    },
+    {
+      "feature_name": "Emission Wavelength",
+      "feature_value": 537,
+      "feature_unit": "nm",
+      "source_sentence": "The measured spectrum centers at 537 nm with a full width at half maximum (FWHM) narrowed from 21.5 to 19.2 nm."
+    },
+    {
+      "feature_name": "Emission Linewidth (FWHM)",
+      "feature_value": 19.2,
+      "feature_unit": "nm",
+      "source_sentence": "The measured spectrum centers at 537 nm with a full width at half maximum (FWHM) narrowed from 21.5 to 19.2 nm."
+    },
+    {
+      "feature_name": "Refractive Index Reduction (QD Layer)",
+      "feature_value": 0.15,
+      "feature_unit": null,
+      "source_sentence": "The refractive indices of emissive QDs [...] are lowered by 0.15 [...] respectively."
+    },
+    {
+      "feature_name": "Cavity Length",
+      "feature_value": 268.5,
+      "feature_unit": "nm",
+      "source_sentence": "This is due to the contradiction between the short cavity length (λ/2 = 268.5 nm)."
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Develop high-performance top-emitting quantum-dot light-emitting diodes (QLEDs) with enhanced brightness, efficiency, stability, and minimal angular color shift through structural and optical optimizations",
+    "key_materials_studied": [
+      "ZnCdSeS/ZnCdS/ZnS core/shell quantum dots",
+      "ZnMgO nanoparticles",
+      "ITO/Ag/ITO electrode stacks",
+      "LiF encapsulation layer"
+    ],
+    "key_methodology_summary": [
+      "Refractive-index-lowering process creating nanogaps between QDs",
+      "Single-mode optical microcavity design with corrected penetration depth calculations",
+      "Narrow-linewidth QD synthesis (19.2 nm FWHM)",
+      "Dual IZO phase tuning layer implementation"
+    ],
+    "primary_findings_conclusions": [
+      "Record luminance of 1,600,000 cd/m² at 6.5V",
+      "Current efficiency of 204.2 cd/A and EQE of 29.2% without light extraction",
+      "Operational lifetime T90=15,600 hours at 1000 nits",
+      "Angular color shift Δu'v'=0.0052 (0°-60°)",
+      "90.3% internal PLQE in solid films"
+    ],
+    "limitations_discussed_by_authors": null,
+    "future_work_suggested_by_authors": [
+      "Integration of microlens arrays/scattering layers for light extraction",
+      "Extension to blue-emitting QLED architectures"
+    ],
+    "novelty_significance_claim": [
+      "First demonstration of single-mode green QLED with electrical-optical synergy",
+      "Resolution of penetration depth calculation controversy in microcavity design",
+      "Record performance metrics across luminance/efficiency/lifetime triad"
+    ],
+    "key_tables_figures_present": [
+      "Figure 1: QD structure and device cross-section",
+      "Figure 2: L-J-V characteristics and lifetime data",
+      "Figure 3: Angular color shift analysis",
+      "Figure 4: Performance optimization radar chart",
+      "Supplementary Figure 2: Optical constant measurements"
+    ]
+  }
+}

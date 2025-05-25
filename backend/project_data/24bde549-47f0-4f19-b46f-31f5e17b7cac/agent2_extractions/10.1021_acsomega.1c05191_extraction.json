@@ -1,0 +1,106 @@
+{
+  "filename": "10.1021_acsomega.1c05191.pdf",
+  "error": null,
+  "technical_features": [
+    {
+      "feature_name": "Maximum Adsorption Capacity (Langmuir)",
+      "feature_value": 146.28,
+      "feature_unit": "mg P/g",
+      "source_sentence": "The maximum adsorption capacity obtained from Langmuir fitting was equal to 146.28 mg P/g."
+    },
+    {
+      "feature_name": "Freundlich 1/n Value",
+      "feature_value": 0.41,
+      "feature_unit": null,
+      "source_sentence": "Our 1/n value obtained for phosphate adsorption by BC-5 was equal to 0.41."
+    },
+    {
+      "feature_name": "Sips Model Correlation Coefficient",
+      "feature_value": 0.95,
+      "feature_unit": null,
+      "source_sentence": "The highest fitting accuracy was obtained when we fitted our adsorption data using the Sips model, which implies that phosphate adsorption on the BC-5 surface was a combination of mono- and multilayer adsorption."
+    },
+    {
+      "feature_name": "Calcium Content in BC-5",
+      "feature_value": 7.72,
+      "feature_unit": "%",
+      "source_sentence": "The Ca content in the BC-5 sample was 7.72%."
+    },
+    {
+      "feature_name": "Surface Area of BC-5",
+      "feature_value": 4.7357,
+      "feature_unit": "m²/g",
+      "source_sentence": "BC-5 4.7357 0.0139 10.1599"
+    },
+    {
+      "feature_name": "Pore Volume of BC-5",
+      "feature_value": 0.0139,
+      "feature_unit": "cm³/g",
+      "source_sentence": "BC-5 4.7357 0.0139 10.1599"
+    },
+    {
+      "feature_name": "Optimal pH for Adsorption",
+      "feature_value": 11,
+      "feature_unit": null,
+      "source_sentence": "The highest adsorption efficiency (equal to 93.33%) was achieved at pH = 11."
+    },
+    {
+      "feature_name": "Pseudo-Second-Order Kinetic R²",
+      "feature_value": 0.9915,
+      "feature_unit": null,
+      "source_sentence": "The corresponding fitting coefficient R² = 0.9901."
+    },
+    {
+      "feature_name": "Equilibrium Adsorption Capacity (Kinetic)",
+      "feature_value": 87.55,
+      "feature_unit": "mg P/g",
+      "source_sentence": "The equilibrium adsorption capacity calculated from the pseudo-second-order kinetic equation was 87.55 mg P/g."
+    },
+    {
+      "feature_name": "Phosphate Content in BC-5 + P",
+      "feature_value": 3.84,
+      "feature_unit": "%",
+      "source_sentence": "After BC-5 adsorbed phosphate, the P content increased from 0.21 to 3.84%."
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Prepare Ca-enriched biochar from sheep manure and oyster shells for efficient phosphate removal from wastewater while utilizing agricultural waste.",
+    "key_materials_studied": [
+      "sheep manure (carbon source)",
+      "oyster shells (calcium source)"
+    ],
+    "key_methodology_summary": [
+      "Pyrolysis of sheep manure at 500°C under N₂ atmosphere",
+      "Chemical modification with HCl-treated oyster shell solution",
+      "Adsorption experiments with varying phosphate concentrations/pH",
+      "Characterization via SEM-EDS, FTIR, XRD, and ICP-OES"
+    ],
+    "primary_findings_conclusions": [
+      "Maximum adsorption capacity of 146.3 mg P/g (Langmuir model)",
+      "94% phosphate removal efficiency at optimal conditions",
+      "Primary mechanism: Ca²⁺-PO₄³⁻ complexation forming hydroxyapatite",
+      "Adsorption capacity increases with pH (89.5-93.3 mg P/g at pH >7)"
+    ],
+    "limitations_discussed_by_authors": [
+      "Reduced surface area (4.74 m²/g) and pore volume after Ca modification",
+      "Interference from NO₃⁻ and SO₄²⁻ anions in solution",
+      "Lower efficiency in acidic conditions (pH <7)"
+    ],
+    "future_work_suggested_by_authors": [
+      "Optimization of biochar:shell ratio and pyrolysis conditions",
+      "Investigation of real wastewater applications",
+      "Exploration of other calcium-rich waste materials"
+    ],
+    "novelty_significance_claim": [
+      "First use of oyster shell waste for biochar Ca-modification",
+      "Dual waste valorization strategy for sustainable phosphate removal",
+      "Comparable performance to synthetic Ca-modified biochars (96.56-197 mg P/g)"
+    ],
+    "key_tables_figures_present": [
+      "SEM/EDS showing Ca distribution (Figs 1-2)",
+      "FTIR/XRD proving hydroxyapatite formation (Fig 3)",
+      "Langmuir isotherm and pseudo-second-order kinetic models (Figs 4-5)",
+      "Comparative adsorption capacity table vs other Ca-biochars (Table 4)"
+    ]
+  }
+}

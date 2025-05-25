@@ -1,0 +1,43 @@
+{
+  "project_topic": "quantum dot displays",
+  "date_filter_used": "2020-01-01 to 2025-05-20",
+  "max_papers_requested": 2,
+  "project_keywords": {
+    "material_keywords": [],
+    "synthesis_keywords": [],
+    "performance_keywords": [],
+    "characterization_keywords": []
+  },
+  "papers": [
+    {
+      "id": 1,
+      "title": "Highly efficient light-emitting diodes via self-assembled InP quantum dot films",
+      "authors": [
+        "Li et al."
+      ],
+      "publication_year": 2025,
+      "doi": "10.1101/2025.05.07.12059007",
+      "journal_name": null,
+      "abstract_snippet": "Heavy-metal-free quantum dot light-emitting diodes (QLEDs) face commercialization challenges due to low efficiency and poor stability... QLEDs with uniform and dense InP-based quantum dot films achieve high external quantum efficiency (26.6%) and luminance (1.4 × 10⁵ cd m⁻²), along with considerable stability (extrapolated T₅₀ lifetime of 4026 hours at 1000 cd m⁻²).",
+      "relevance_explanation_from_llm": "Demonstrates advances in InP-based QD-LED efficiency and stability critical for quantum dot display commercialization",
+      "landing_page_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12059007/",
+      "potential_oa_pdf_url": "https://pmc.ncbi.nlm.nih.gov/pmc/articles/PMC12059007/pdf/",
+      "suggested_filename": "10.1101_2025.05.07.12059007.pdf"
+    },
+    {
+      "id": 2,
+      "title": "Highly efficient and eco-friendly green quantum dot light-emitting diodes based on interfacial potential-graded ZnSeTe quantum dots",
+      "authors": [
+        "Bi et al."
+      ],
+      "publication_year": 2025,
+      "doi": "10.1101/2025.02.25.11850856",
+      "journal_name": null,
+      "abstract_snippet": "Eco-friendly green LEDs based on interfacial potential-graded ZnSeTe quantum dots demonstrate peak external quantum efficiency of 21.7% at 520 nm... The average EQE for control QLEDs is 10.5%, whereas QLEDs based on IPG QDs achieve 18.6%.",
+      "relevance_explanation_from_llm": "Addresses critical challenges in green QD-LED performance for full-color quantum dot displays",
+      "landing_page_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11850856/",
+      "potential_oa_pdf_url": "https://pmc.ncbi.nlm.nih.gov/pmc/articles/PMC11850856/pdf/",
+      "suggested_filename": "10.1101_2025.02.25.11850856.pdf"
+    }
+  ]
+}

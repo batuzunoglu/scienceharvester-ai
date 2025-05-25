@@ -1,0 +1,107 @@
+{
+  "filename": "feng-et-al-2021-adsorption-of-phosphate-in-aqueous-phase-by-biochar-prepared-from-sheep-manure-and-modified-by-oyster (1).pdf",
+  "error": null,
+  "technical_features": [
+    {
+      "feature_name": "Maximum Adsorption Capacity (Langmuir)",
+      "feature_value": 146.28,
+      "feature_unit": "mg P/g",
+      "source_sentence": "The maximum adsorption capacity obtained from Langmuir fitting was equal to 146.28 mg P/g."
+    },
+    {
+      "feature_name": "Freundlich 1/n Value",
+      "feature_value": 0.41,
+      "feature_unit": null,
+      "source_sentence": "Our 1/n value obtained for phosphate adsorption by BC-5 was equal to 0.41."
+    },
+    {
+      "feature_name": "Sips Model Maximum Adsorption Capacity",
+      "feature_value": 121.29,
+      "feature_unit": "mg P/g",
+      "source_sentence": "Sips q (mg P/g) 121.29"
+    },
+    {
+      "feature_name": "Calcium Content in BC-5",
+      "feature_value": 7.72,
+      "feature_unit": "%",
+      "source_sentence": "The Ca content in the BC-5 sample was 7.72%."
+    },
+    {
+      "feature_name": "Surface Area (BC-5)",
+      "feature_value": 4.7357,
+      "feature_unit": "m²/g",
+      "source_sentence": "BC-5 4.7357 0.0139 10.1599"
+    },
+    {
+      "feature_name": "Pore Volume (BC-5)",
+      "feature_value": 0.0139,
+      "feature_unit": "cm³/g",
+      "source_sentence": "BC-5 4.7357 0.0139 10.1599"
+    },
+    {
+      "feature_name": "Pore Diameter (BC-5)",
+      "feature_value": 10.1599,
+      "feature_unit": "nm",
+      "source_sentence": "BC-5 4.7357 0.0139 10.1599"
+    },
+    {
+      "feature_name": "Adsorption Efficiency at pH 11",
+      "feature_value": 93.33,
+      "feature_unit": "%",
+      "source_sentence": "The highest adsorption efficiency (equal to 93.33%) was achieved at pH = 11."
+    },
+    {
+      "feature_name": "Phosphate Adsorption Mechanism",
+      "feature_value": "Complexation with Ca²⁺ forming hydroxyapatite",
+      "feature_unit": null,
+      "source_sentence": "PO₄³⁻ was complexed by biochar’s Ca²⁺ yielding hydroxyapatite."
+    },
+    {
+      "feature_name": "Coexisting Ion Effect (SO₄²⁻)",
+      "feature_value": -2.79,
+      "feature_unit": "%",
+      "source_sentence": "SO₄²⁻ inhibited phosphate adsorption by the BC-5 material: the corresponding adsorption capacities decreased by 2.79%."
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Develop Ca-enriched biochar from sheep manure and oyster shells for efficient phosphate adsorption in wastewater treatment while utilizing agricultural waste.",
+    "key_materials_studied": [
+      "Sheep manure (carbon source)",
+      "Oyster shells (calcium source)",
+      "Hydrochloric acid (modification agent)"
+    ],
+    "key_methodology_summary": [
+      "Pyrolysis of sheep manure at 500°C under N₂ atmosphere",
+      "Chemical modification with oyster shell-derived Ca via HCl treatment",
+      "Adsorption experiments under varying pH, phosphate concentrations, and coexisting ions",
+      "Characterization using SEM-EDS, FTIR, XRD, and ICP-OES"
+    ],
+    "primary_findings_conclusions": [
+      "Maximum adsorption capacity of 146.28 mg P/g (Langmuir model)",
+      "94% adsorption efficiency at 50 mg P/L concentration",
+      "Primary mechanism: Ca²⁺-PO₄³⁻ complexation forming hydroxyapatite",
+      "Optimal performance at pH >7 (89.5-93.3 mg P/g)"
+    ],
+    "limitations_discussed_by_authors": [
+      "Reduced adsorption capacity under acidic conditions (pH <7)",
+      "Potential interference from NO₃⁻ and SO₄²⁻ anions",
+      "Decreased surface area post-Ca modification (4.74 m²/g vs 5.14 m²/g)"
+    ],
+    "future_work_suggested_by_authors": [
+      "Scale-up production for practical wastewater treatment applications",
+      "Investigate real wastewater matrix effects",
+      "Optimize oyster shell-to-biochar ratios for cost efficiency"
+    ],
+    "novelty_significance_claim": [
+      "First use of oyster shell waste as calcium source for biochar modification",
+      "Dual waste valorization strategy for agricultural byproducts",
+      "Competitive adsorption capacity vs chemically modified biochars"
+    ],
+    "key_tables_figures_present": [
+      "Table 4 (comparison with Ca-modified biochars)",
+      "Figures 1-2 (SEM/EDS of unmodified vs modified biochar)",
+      "Figure 5 (adsorption isotherm/kinetic curves)",
+      "Figure 6 (pH/anion effects on adsorption)"
+    ]
+  }
+}

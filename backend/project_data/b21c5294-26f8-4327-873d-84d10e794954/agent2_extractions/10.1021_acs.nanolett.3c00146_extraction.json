@@ -1,0 +1,122 @@
+{
+  "filename": "10.1021_acs.nanolett.3c00146.pdf",
+  "error": null,
+  "technical_features": [
+    {
+      "feature_name": "External Quantum Efficiency (Red QLED)",
+      "feature_value": 19.1,
+      "feature_unit": "%",
+      "source_sentence": "CELS-patterned QLEDs show remarkable external quantum efficiencies (19.1%, 17.5%, 12.0% for red, green, blue, respectively)."
+    },
+    {
+      "feature_name": "External Quantum Efficiency (Green QLED)",
+      "feature_value": 17.5,
+      "feature_unit": "%",
+      "source_sentence": "CELS-patterned QLEDs show remarkable external quantum efficiencies (19.1%, 17.5%, 12.0% for red, green, blue, respectively)."
+    },
+    {
+      "feature_name": "External Quantum Efficiency (Blue QLED)",
+      "feature_value": 12.0,
+      "feature_unit": "%",
+      "source_sentence": "CELS-patterned QLEDs show remarkable external quantum efficiencies (19.1%, 17.5%, 12.0% for red, green, blue, respectively)."
+    },
+    {
+      "feature_name": "Operation Lifetime (T95) at 1000 nits (Green QLED)",
+      "feature_value": 8700,
+      "feature_unit": "hours",
+      "source_sentence": "CELS-patterned QLEDs show a long operation lifetime (T95 at 1000 nits up to 8700 h)."
+    },
+    {
+      "feature_name": "Patterning Resolution",
+      "feature_value": 4,
+      "feature_unit": "μm",
+      "source_sentence": "Various fluorescence and electroluminescence patterns with a feature size down to ≈1.5 μm are demonstrated... The finest features are ∼4 μm, as shown in the line patterns."
+    },
+    {
+      "feature_name": "Photoluminescence Quantum Yield Retention (Red QDs)",
+      "feature_value": 100,
+      "feature_unit": "%",
+      "source_sentence": "Red QD films fully preserve their PLQYs at various stages of patterning... developed (with toluene)."
+    },
+    {
+      "feature_name": "Photoluminescence Quantum Yield Retention (Green QDs)",
+      "feature_value": 85,
+      "feature_unit": "%",
+      "source_sentence": "Patterned green QDs maintain ∼85% of the original PLQYs."
+    },
+    {
+      "feature_name": "Photoluminescence Quantum Yield Retention (Blue QDs)",
+      "feature_value": 62,
+      "feature_unit": "%",
+      "source_sentence": "The remnant relative PLQYs of... blue QD films are ∼62%."
+    },
+    {
+      "feature_name": "Surface Chlorination (Cl/Zn Ratio)",
+      "feature_value": 0.19,
+      "feature_unit": null,
+      "source_sentence": "XPS analysis shows that the molar ratio of Cl and Zn atoms (Cl/Zn) on the QD surfaces is 0.19."
+    },
+    {
+      "feature_name": "TPCl Content in QD Films",
+      "feature_value": "2-10",
+      "feature_unit": "wt%",
+      "source_sentence": "Typical patterning processes use 2−10 wt % of TPCl and an exposure of 50−500 mJ cm−2, depending on the QDs."
+    },
+    {
+      "feature_name": "UV Exposure Dose",
+      "feature_value": "50-500",
+      "feature_unit": "mJ/cm²",
+      "source_sentence": "Typical UV doses for CELS are among 50−500 mJ cm−2."
+    },
+    {
+      "feature_name": "Photostability Improvement (Red QDs)",
+      "feature_value": "97% PLQY retention after 500 mJ/cm² UV",
+      "feature_unit": null,
+      "source_sentence": "CELS-treated QD films show notably higher remnant PLQYs over pristine samples (red, 82% and 97%)."
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Develop a light-triggered carbocation-enabled ligand stripping (CELS) method for high-resolution patterning of quantum dot light-emitting diodes (QLEDs) without performance degradation.",
+    "key_materials_studied": [
+      "Cadmium-based core/shell QDs (CdZnSe/CdZnS/ZnS)",
+      "Heavy-metal-free QDs (InP/ZnS, ZnSe/ZnS)",
+      "Triphenylmethyl chloride (TPCl) photoacid generator"
+    ],
+    "key_methodology_summary": [
+      "UV-triggered TPCl photodissociation into TP+ carbocations and Cl⁻ anions",
+      "Ligand stripping via TP+ electrophilic reactions",
+      "In situ surface chlorination for defect passivation",
+      "Photoresist-free patterning using solubility switching"
+    ],
+    "primary_findings_conclusions": [
+      "Patterned QLEDs achieved record EQEs: 19.1% (red), 17.5% (green), 12.0% (blue)",
+      "Operational lifetimes (T95 @1000 nits): 7600h (red), 8700h (green), 60h (blue)",
+      "4μm feature resolution with 100nm line edge roughness",
+      "75-90% PLQY retention for patterned QDs",
+      "Universal applicability to Cd-based and heavy-metal-free QDs"
+    ],
+    "limitations_discussed_by_authors": [
+      "Moderate PLQY retention for blue QDs (62%)",
+      "Potential surface damage from free radicals during patterning",
+      "Limited commercial-scale patterning throughput demonstration"
+    ],
+    "future_work_suggested_by_authors": [
+      "Development of TPCl derivatives with improved patterning efficiency",
+      "Integration with optimized charge transport layers",
+      "Scalability studies for display manufacturing",
+      "Extension to other nanocrystal systems"
+    ],
+    "novelty_significance_claim": [
+      "First patterning method matching non-patterned QLED performance",
+      "Dual-function photochemistry: ligand stripping + surface passivation",
+      "Eliminates need for photoresists or sacrificial layers",
+      "Enables >1500 PPI resolution for microdisplays"
+    ],
+    "key_tables_figures_present": [
+      "Table S1 (patterned QLED performance comparison)",
+      "Figures 3-5 (patterning results/device characteristics)",
+      "Figures S3-S17 (supplementary characterization)",
+      "Tables S2-S4 (quantitative surface analysis)"
+    ]
+  }
+}

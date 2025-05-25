@@ -1,0 +1,109 @@
+{
+  "filename": "10.1088_2752-5724_ad3a83.pdf",
+  "error": null,
+  "technical_features": [
+    {
+      "feature_name": "Photoluminescence Quantum Yield (PL QY)",
+      "feature_value": 91,
+      "feature_unit": "%",
+      "source_sentence": "The resultant InP/ZnSe/ZnS core/shell QDs exhibit a PL peak of 534 nm, an average size of 8.1 nm and a high PL QY of 91%."
+    },
+    {
+      "feature_name": "External Quantum Efficiency (EQE)",
+      "feature_value": 12.74,
+      "feature_unit": "%",
+      "source_sentence": "The corresponding green-emitting electroluminescence devices exhibited a maximum EQE of 12.74%, along with a luminance of over 175 000 cd m⁻²."
+    },
+    {
+      "feature_name": "Maximum Luminance",
+      "feature_value": 175084,
+      "feature_unit": "cd/m²",
+      "source_sentence": "Especially, the device obtains a luminance of over 175 000 cd m⁻² and a long T₅₀@100 cd m⁻² lifetime of over 20 000 h."
+    },
+    {
+      "feature_name": "Operational Lifetime (T₅₀)",
+      "feature_value": 20044,
+      "feature_unit": "hours",
+      "source_sentence": "The T₅₀@100 cd m⁻² lifetime of over 20 000 h."
+    },
+    {
+      "feature_name": "Core Size (InP/ZnSe)",
+      "feature_value": 2.8,
+      "feature_unit": "nm",
+      "source_sentence": "The average size of the cores is 2.8 nm (with ZnMy₂)."
+    },
+    {
+      "feature_name": "QD Size (InP/ZnSe/ZnS)",
+      "feature_value": 8.1,
+      "feature_unit": "nm",
+      "source_sentence": "The average size for the as-prepared core/shell/shell QD with ZnMy₂ is estimated to be 8.1 ± 1.0 nm."
+    },
+    {
+      "feature_name": "PL Emission FWHM",
+      "feature_value": 44,
+      "feature_unit": "nm",
+      "source_sentence": "QDs with ZnMy₂ demonstrate [...] an FWHM of 44 nm."
+    },
+    {
+      "feature_name": "Valence Band Energy",
+      "feature_value": 5.16,
+      "feature_unit": "eV",
+      "source_sentence": "The valence bands of QDs [...] with ZnMy₂ are 5.16 eV."
+    },
+    {
+      "feature_name": "Conduction Band Energy",
+      "feature_value": 2.88,
+      "feature_unit": "eV",
+      "source_sentence": "Their conduction bands are [...] 2.88 eV."
+    },
+    {
+      "feature_name": "Turn-on Voltage",
+      "feature_value": 2.0,
+      "feature_unit": "V",
+      "source_sentence": "The device with ZnMy₂ exhibits a smaller turn-on voltage (2.0 V)."
+    },
+    {
+      "feature_name": "Synthesis Method",
+      "feature_value": "Fluoride-free in-situ passivation",
+      "feature_unit": null,
+      "source_sentence": "Here, we proposed a fluoride-free synthesis strategy to in-situ passivate the InP cores."
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Improve performance of green InP-based QLEDs through fluoride-free in-situ core passivation using zinc myristate",
+    "key_materials_studied": [
+      "InP/ZnSe/ZnS core/shell quantum dots",
+      "Zinc myristate (ZnMy₂)",
+      "ZnMgO nanoparticles"
+    ],
+    "key_methodology_summary": [
+      "In-situ passivation of InP cores with ZnMy₂ to form Zn-P protective layer",
+      "Multi-step shell growth (ZnSe/ZnS)",
+      "QLED device fabrication with ITO/PEDOT:PSS/PF8Cz/QD/ZnMgO/Al structure"
+    ],
+    "primary_findings_conclusions": [
+      "91% PL quantum yield in passivated QDs",
+      "12.74% maximum EQE in devices",
+      "175,084 cd/m² peak luminance",
+      "20,044-hour T50 @100 cd/m² operational lifetime"
+    ],
+    "limitations_discussed_by_authors": [
+      "Persistent surface defects in core/shell structures",
+      "Performance gap remains compared to cadmium-based QLEDs"
+    ],
+    "future_work_suggested_by_authors": [
+      "Further optimization of green InP QLED performance",
+      "Development of full-color display commercialization strategies"
+    ],
+    "novelty_significance_claim": [
+      "First fluoride-free passivation method for InP cores",
+      "Record luminance for green InP QLEDs",
+      "Safer alternative to HF-based synthesis methods"
+    ],
+    "key_tables_figures_present": [
+      "Figure 1: XPS analysis of core passivation effects",
+      "Figure 3: Device performance metrics (EQE, luminance)",
+      "Table 1: Comprehensive device parameter comparison"
+    ]
+  }
+}

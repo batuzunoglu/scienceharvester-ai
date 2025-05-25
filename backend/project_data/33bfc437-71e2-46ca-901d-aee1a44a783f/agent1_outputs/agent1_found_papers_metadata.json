@@ -1,0 +1,112 @@
+{
+  "project_topic": "quantum dot provider",
+  "date_filter_used": "2020-01-01 to 2025-05-21",
+  "max_papers_requested": 5,
+  "project_keywords": {
+    "material_keywords": [],
+    "synthesis_keywords": [],
+    "performance_keywords": [],
+    "characterization_keywords": []
+  },
+  "papers": [
+    {
+      "id": 1,
+      "title": "Quantum Dots: A Review from Concept to Clinic",
+      "authors": [
+        "Kargozar Saeid",
+        "Hoseini Seyed Javad",
+        "Milan Peiman",
+        "Brouki Hooshmand Sara",
+        "Kim Hae‐Won",
+        "Mozafari Masoud"
+      ],
+      "publication_year": 2020,
+      "doi": "10.1002/biot.202000117",
+      "journal_name": "Biotechnology Journal",
+      "abstract_snippet": "In this review, comprehensive information about different aspects of QDs is provided, including their types and classifications, synthesis approaches, in vitro and in vivo toxicity, biological applications, and potentials in clinical applications.",
+      "relevance_explanation_from_llm": "Reviews quantum dot synthesis methods and commercialization challenges relevant to providers",
+      "landing_page_url": "https://onlinelibrary.wiley.com/doi/10.1002/biot.202000117",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1002_biot.202000117.pdf"
+    },
+    {
+      "id": 2,
+      "title": "Semiconductor quantum dots: Technological progress and future challenges",
+      "authors": [
+        "García de Arquer F. Pelayo",
+        "Talapin Dmitri V.",
+        "Klimov Victor I.",
+        "Arakawa Yasuhiko",
+        "Bayer Manfred",
+        "Sargent Edward H."
+      ],
+      "publication_year": 2021,
+      "doi": "10.1126/science.aaz8541",
+      "journal_name": "Science",
+      "abstract_snippet": "Review of recent advances in synthesis and surface functionalization enabling commercialization of display applications and developments in lasing/sensing.",
+      "relevance_explanation_from_llm": "Analyzes industrial-scale quantum dot manufacturing challenges for providers",
+      "landing_page_url": "https://www.science.org/doi/10.1126/science.aaz8541",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1126_science.aaz8541.pdf"
+    },
+    {
+      "id": 3,
+      "title": "Recent progresses and challenges in colloidal quantum dot light-emitting diodes: a focus on electron transport layers with metal oxide nanoparticles and organic semiconductors",
+      "authors": [
+        "Lee Jaeyeop",
+        "Jo Hyeona",
+        "Choi Minseok",
+        "Park Sangwook",
+        "Oh Jiyoon",
+        "Lee Kyoungeun",
+        "Bae Yeyun",
+        "Rhee Seunghyun",
+        "Roh Jeongkyun"
+      ],
+      "publication_year": 2024,
+      "doi": "10.1039/D4NH00370E",
+      "journal_name": "Nanoscale Horizons",
+      "abstract_snippet": "Examines scalability challenges of quantum dot device manufacturing and material supply chain requirements.",
+      "relevance_explanation_from_llm": "Discusses industrial production hurdles faced by quantum dot providers",
+      "landing_page_url": "https://pubs.rsc.org/en/content/articlelanding/2024/nh/d4nh00370e",
+      "potential_oa_pdf_url": "https://pubs.rsc.org/en/content/articlepdf/2024/nh/d4nh00370e",
+      "suggested_filename": "10.1039_D4NH00370E.pdf"
+    },
+    {
+      "id": 4,
+      "title": "Prospects and challenges of colloidal quantum dot laser diodes",
+      "authors": [
+        "Klimov Victor I.",
+        "Boretti Alberto",
+        "Castaneda Juan A.",
+        "Crooker Scott A."
+      ],
+      "publication_year": 2021,
+      "doi": "10.1038/s41566-021-00827-6",
+      "journal_name": "Nature Photonics",
+      "abstract_snippet": "Assesses commercialization pathways for colloidal quantum dot lasers including material production scalability.",
+      "relevance_explanation_from_llm": "Evaluates provider challenges in manufacturing laser-grade quantum dots",
+      "landing_page_url": "https://www.nature.com/articles/s41566-021-00827-6",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1038_s41566-021-00827-6.pdf"
+    },
+    {
+      "id": 5,
+      "title": "Colloidal quantum dot laser diodes are just around the corner",
+      "authors": [
+        "Klimov Victor I.",
+        "Makukhin Nikolai",
+        "Bao Jianshuo",
+        "Xu Xiangyu"
+      ],
+      "publication_year": 2020,
+      "doi": "10.1038/s41467-019-13856-1",
+      "journal_name": "Nature Communications",
+      "abstract_snippet": "Demonstrates solution-processable quantum dot laser devices with implications for industrial production methods.",
+      "relevance_explanation_from_llm": "Describes manufacturing-friendly approaches for quantum dot providers",
+      "landing_page_url": "https://www.nature.com/articles/s41467-019-13856-1",
+      "potential_oa_pdf_url": "https://www.nature.com/articles/s41467-019-13856-1.pdf",
+      "suggested_filename": "10.1038_s41467-019-13856-1.pdf"
+    }
+  ]
+}

@@ -1,0 +1,142 @@
+{
+  "filename": "journal.pone.0301986.pdf",
+  "error": null,
+  "technical_features": [
+    {
+      "feature_name": "Surface Area Increase",
+      "feature_value": 5.57,
+      "feature_unit": "times",
+      "source_sentence": "The results showed that the surface area of MgSBC-0.1 synthesized increased by 5.57 times."
+    },
+    {
+      "feature_name": "Maximum Phosphorus Adsorption Capacity",
+      "feature_value": 379.52,
+      "feature_unit": "mg·g⁻¹",
+      "source_sentence": "MgSBC-0.1 can effectively remove phosphate in the initial solution pH range of 3.00–7.00, with a fitted maximum phosphorus adsorption capacity of 379.52 mg·g⁻¹."
+    },
+    {
+      "feature_name": "Surface Composition",
+      "feature_value": [
+        "MgO",
+        "Mg(OH)₂",
+        "CaO"
+      ],
+      "feature_unit": null,
+      "source_sentence": "The material surface contained MgO, Mg(OH)₂, and CaO nanoparticles."
+    },
+    {
+      "feature_name": "Effective pH Range",
+      "feature_value": [
+        3.0,
+        7.0
+      ],
+      "feature_unit": null,
+      "source_sentence": "MgSBC-0.1 can effectively remove phosphate in the initial solution pH range of 3.00–7.00."
+    },
+    {
+      "feature_name": "Adsorption Kinetics Model",
+      "feature_value": "Pseudo-second-order",
+      "feature_unit": null,
+      "source_sentence": "The adsorption conforms to the pseudo second-order kinetics model."
+    },
+    {
+      "feature_name": "Competitive Ion Effects",
+      "feature_value": {
+        "Inhibitors": [
+          "HCO₃⁻",
+          "CO₃²⁻"
+        ],
+        "Promoters": [
+          "Ca²⁺",
+          "Fe³⁺",
+          "NH₄⁺"
+        ]
+      },
+      "feature_unit": null,
+      "source_sentence": "HCO₃⁻ and CO₃²⁻ had the greatest competitive effect on phosphate due to their competitive binding sites with phosphate. Ca²⁺ and Fe³⁺ ions were found to enhance the adsorption of phosphate by MgSBC-0.1."
+    },
+    {
+      "feature_name": "Pore Volume",
+      "feature_value": 0.17,
+      "feature_unit": "cm³·g⁻¹",
+      "source_sentence": "The pore volume (cm³·g⁻¹) [...] MgSBC-0.1 had values of [...] 0.17."
+    },
+    {
+      "feature_name": "Reuse Efficiency After 3 Cycles",
+      "feature_value": 59.48,
+      "feature_unit": "%",
+      "source_sentence": "The adsorption efficiency [...] decreased to 59.48% after the third cycle."
+    },
+    {
+      "feature_name": "Adsorption Mechanism Compounds",
+      "feature_value": [
+        "MgHPO₄",
+        "CaHPO₄"
+      ],
+      "feature_unit": null,
+      "source_sentence": "The adsorbed P mainly exists in the form of MgHPO₄ and CaHPO₄."
+    },
+    {
+      "feature_name": "Pyrolysis Temperature",
+      "feature_value": 500,
+      "feature_unit": "°C",
+      "source_sentence": "The material after grinding was named MgSP, which was calcined in a tube furnace under a helium atmosphere at 500°C for 2 h."
+    },
+    {
+      "feature_name": "Mg Impregnation Concentration",
+      "feature_value": 0.1,
+      "feature_unit": "mol·L⁻¹",
+      "source_sentence": "A 0.1 mol·L⁻¹ Mg(CH₃COO) solution was prepared."
+    },
+    {
+      "feature_name": "Equilibrium Time",
+      "feature_value": 2,
+      "feature_unit": "hours",
+      "source_sentence": "Equilibrium was achieved in roughly 2 h."
+    }
+  ],
+  "qualitative_insights": {
+    "main_objective": "Develop magnesium-loaded sludge-based biochar (MgSBC-0.1) for efficient phosphate adsorption from wastewater and subsequent reuse as agricultural fertilizer",
+    "key_materials_studied": [
+      "Anaerobic fermentation sludge",
+      "Magnesium acetate",
+      "Unmodified sludge-based biochar (SBC)",
+      "Potassium dihydrogen phosphate (KH₂PO₄)"
+    ],
+    "key_methodology_summary": [
+      "Synthesis via Mg impregnation and pyrolysis (500°C under helium)",
+      "Characterization using SEM, BET, XRD, XPS, FTIR, TEM",
+      "Batch adsorption experiments (kinetics, isotherms, pH effects, competing ions)",
+      "Real wastewater testing with rural biogas slurry"
+    ],
+    "primary_findings_conclusions": [
+      "5.57x increased surface area in MgSBC-0.1 vs SBC",
+      "Maximum adsorption capacity: 379.52 mg·g⁻¹ (Langmuir model)",
+      "Effective pH range: 3.00-7.00",
+      "Mechanisms: MgHPO₄/CaHPO₄ precipitation + electrostatic attraction",
+      "87.38% phosphate removal in real biogas slurry at 4 g·L⁻¹ dosage"
+    ],
+    "limitations_discussed_by_authors": [
+      "Decreased reusability (92.52% → 59.48% after 3 cycles)",
+      "Significant adsorption inhibition by CO₃²⁻/HCO₃⁻ anions",
+      "Limited research on desorption mechanisms mentioned in introduction"
+    ],
+    "future_work_suggested_by_authors": [
+      "Improvement of material reusability",
+      "Further investigation of desorption mechanisms",
+      "Scale-up for practical wastewater treatment applications"
+    ],
+    "novelty_significance_claim": [
+      "First demonstration of Mg-modified sludge biochar for phosphate recovery",
+      "7.17x higher adsorption capacity vs unmodified biochar",
+      "Dual Mg/Ca precipitation mechanism from sludge components",
+      "Successful application in real biogas slurry treatment"
+    ],
+    "key_tables_figures_present": [
+      "Table 1: XPS elemental composition analysis",
+      "Figures 1-4: SEM/TEM morphology, BET isotherms, XRD/XPS/FTIR characterization",
+      "Figures 5-8: Adsorption performance under varying conditions",
+      "Figures 9/S1-S5: Mechanism analysis and reusability data"
+    ]
+  }
+}

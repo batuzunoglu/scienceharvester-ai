@@ -1,0 +1,52 @@
+{
+  "project_topic": "quantum dot displays",
+  "date_filter_used": "2020-01-01 to 2025-05-21",
+  "max_papers_requested": 2,
+  "project_keywords": {
+    "material_keywords": [],
+    "synthesis_keywords": [],
+    "performance_keywords": [],
+    "characterization_keywords": []
+  },
+  "papers": [
+    {
+      "id": 1,
+      "title": "Recent Advances in Light Outcoupling from Quantum-Dot Light-Emitting Diodes",
+      "authors": [
+        "Taesoo Lee",
+        "Minjun Kim",
+        "Beomsoo Chun",
+        "Ganghyun Park",
+        "Soojeong Yim",
+        "Sunkyu Yu",
+        "Jeonghun Kwak"
+      ],
+      "publication_year": 2024,
+      "doi": "10.1021/acsphotonics.4c01617",
+      "journal_name": "ACS Photonics",
+      "abstract_snippet": "Colloidal nanocrystal quantum-dot (QD)-based light-emitting diodes (QLEDs) represent a highly promising technology for next-generation displays, utilizing the distinctive optical characteristics of QDs to generate vivid and precise colors. This Perspective discusses recent cornerstones and major challenges in outcoupling technologies for QLEDs, particularly those based on microcavity structures.",
+      "relevance_explanation_from_llm": "This paper directly addresses quantum dot display technology advancements in light outcoupling methods for QLEDs, a core component of next-gen displays.",
+      "landing_page_url": "https://doi.org/10.1021/acsphotonics.4c01617",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1021_acsphotonics.4c01617.pdf"
+    },
+    {
+      "id": 2,
+      "title": "Intrinsically stretchable quantum dot light-emitting diodes",
+      "authors": [
+        "Dong Chan Kim",
+        "Minjun Kim",
+        "Jiwoong Yang",
+        "Kiwook Kim"
+      ],
+      "publication_year": 2024,
+      "doi": "10.1038/s41928-024-01152-w",
+      "journal_name": "Nature Electronics",
+      "abstract_snippet": "We show that intrinsically stretchable quantum dot light-emitting diodes (QLEDs) can be made using a mechanically soft and stretchable emissive layer consisting of a ternary nanocomposite of colloidal quantum dots, an elastomeric polymer and a charge transport polymer.",
+      "relevance_explanation_from_llm": "This paper demonstrates breakthrough applications of quantum dots in stretchable displays, expanding potential use cases for QD display technology.",
+      "landing_page_url": "https://doi.org/10.1038/s41928-024-01152-w",
+      "potential_oa_pdf_url": null,
+      "suggested_filename": "10.1038_s41928-024-01152-w.pdf"
+    }
+  ]
+}
