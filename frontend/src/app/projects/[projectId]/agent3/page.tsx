@@ -1,3 +1,4 @@
+// Cache-breaking comment - attempt 1
 // /Users/batu/Desktop/Projects/scienceharvester-ai/frontend/src/app/projects/[projectId]/agent3/page.tsx:
 'use client';
 

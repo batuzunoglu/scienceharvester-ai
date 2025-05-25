@@ -1,3 +1,4 @@
+// Cache-breaking comment - attempt 1
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
