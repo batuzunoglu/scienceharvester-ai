@@ -298,7 +298,7 @@ export default function Agent3ReportPage() {
         </Card>
       )}
        {!markdownReport && !isGenerating && !isPreloading && !preloadError && currentProjectId && streamLog.length <=1 && (
-        <p className="text-muted-foreground mt-4 text-center">No report generated yet for this project. Click "Generate Full Report" to start.</p>
+        <p className="text-muted-foreground mt-4 text-center">No report generated yet for this project. Click Generate Full Report to start.</p>
       )}
     </div>
   );
