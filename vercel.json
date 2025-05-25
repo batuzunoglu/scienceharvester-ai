@@ -2,7 +2,7 @@
     "version": 2,
     "builds": [
       {
-        "src": "frontend/next.config.js", // Or .mjs if that's what you have
+        "src": "frontend/next.config.js", 
         "use": "@vercel/next"
       },
       {
@@ -12,12 +12,12 @@
     ],
     "routes": [
       {
-        "src": "/api/(.*)", // All requests to /api/...
-        "dest": "backend/main.py" // Route them to your Python backend
+        "src": "/api/(.*)",
+        "dest": "backend/main.py" 
       },
       {
-        "src": "/(.*)", // All other requests
-        "dest": "frontend/$1" // Route them to your Next.js frontend
+        "src": "/(.*)",
+        "dest": "frontend/$1"
       }
     ]
   }
