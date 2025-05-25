@@ -77,10 +77,10 @@ export default function Agent3ReportPage() {
         } else {
           setStreamLog(prev => [...prev, "No existing report found for this project. Ready to generate."]);
         }
-      } catch (err: any) {
+      } catch (err) {
         console.error("Error preloading report:", err);
-        setPreloadError(err.message || "Failed to load existing report data.");
-        setStreamLog(prev => [...prev, `Error preloading report: ${err.message}`]);
+        setPreloadError((err as Error).message || "Failed to load existing report data.");
+        setStreamLog(prev => [...prev, `Error preloading report: ${(err as Error).message}`]);
       } finally {
         setIsPreloading(false);
       }
@@ -155,7 +155,7 @@ export default function Agent3ReportPage() {
 
       es.onerror = (err) => {
         console.error("EventSource error:", err);
-        let errorMsg = 'Connection error with the report stream.';
+        const errorMsg = 'Connection error with the report stream.';
         // Note: EventSource error objects are basic and don't typically carry HTTP status.
         setGenerationError(errorMsg);
         setStreamLog(prev => [...prev, `Stream connection failed. ${errorMsg}`]);
@@ -163,12 +163,12 @@ export default function Agent3ReportPage() {
         es.close(); 
       };
 
-    } catch (e) {
-        console.error("Failed to initialize EventSource:", e);
+    } catch { // Removed unused 'e'
+        console.error("Failed to initialize EventSource:");
         setGenerationError("Failed to connect to the report generation service.");
         setIsGenerating(false);
     }
-  }, [currentProjectId, API_BASE_URL]);
+  }, [currentProjectId]); // Removed API_BASE_URL
 
   const handleDownloadPdf = useCallback(async () => {
     if (!currentProjectId || !isPdfReady || isDownloadingPdf) return;
@@ -215,13 +215,13 @@ export default function Agent3ReportPage() {
       URL.revokeObjectURL(url);
       setStreamLog(prev => [...prev, "PDF download initiated."]);
 
-    } catch (err: any) {
+    } catch (err) {
       console.error("PDF download error:", err);
-      setGenerationError(err.message || 'An unknown error occurred during PDF download.');
+      setGenerationError((err as Error).message || 'An unknown error occurred during PDF download.');
     } finally {
       setIsDownloadingPdf(false);
     }
-  }, [currentProjectId, isPdfReady, isDownloadingPdf, API_BASE_URL]);
+  }, [currentProjectId, isPdfReady, isDownloadingPdf]); // Removed API_BASE_URL
 
   return (
     <div className="container mx-auto p-4 md:p-6 space-y-6">

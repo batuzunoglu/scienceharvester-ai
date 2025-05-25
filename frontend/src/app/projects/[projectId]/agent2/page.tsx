@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react'; // Added useEffect, useCallback
 import { useParams } from 'next/navigation';
-import { useProjects, Project, Extraction, QualInsights } from '@/context/ProjectsContext'; // Assuming Extraction, TechFeature, QualInsights are exported from context
+import { useProjects, Project, Extraction, TechFeature, QualInsights } from '@/context/ProjectsContext'; // Added TechFeature import
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -14,7 +14,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || '';
 
 export default function Agent2Page() {
   const { projectId: rawProjectId } = useParams();
-  const { getProjectDetails, updateExtractions } = useProjects(); // Added getProjectDetails
+  const { getProjectDetails, updateExtractions } = useProjects(); // Removed getProject
 
   const [currentProjectId, setCurrentProjectId] = useState<string | null>(null);
   const [project, setProject] = useState<Project | null | undefined>(null);
@@ -82,11 +82,11 @@ export default function Agent2Page() {
             }
             const extractionContent: Extraction = await fileRes.json();
             preloaded.push(extractionContent);
-          } catch (fileError: any) {
-             console.warn(`Error fetching or parsing content for ${filename}: ${fileError.message}`);
+          } catch (fileError) { // Typed as Error
+             console.warn(`Error fetching or parsing content for ${filename}: ${(fileError as Error).message}`);
              preloaded.push({
                 filename: filename,
-                error: `Error loading pre-existing data: ${fileError.message.substring(0,100)}`,
+                error: `Error loading pre-existing data: ${(fileError as Error).message.substring(0,100)}`,
                 technical_features: [],
                 qualitative_insights: { main_objective: null } as QualInsights
               });
@@ -98,13 +98,13 @@ export default function Agent2Page() {
       } else {
         console.log(`Agent2Page: No pre-existing Agent 2 extractions found for project ${currentProjectId}`);
       }
-    } catch (err: any) {
+    } catch (err) { // Typed as Error
       console.error("Agent2Page: Error during preloading:", err);
-      setPreloadError(err.message || 'Failed to load initial project data.');
+      setPreloadError((err as Error).message || 'Failed to load initial project data.');
     } finally {
       setIsPreloading(false);
     }
-  }, [currentProjectId, getProjectDetails, updateExtractions, API_BASE_URL]); // API_BASE_URL is stable
+  }, [currentProjectId, getProjectDetails, updateExtractions]); // Removed API_BASE_URL
 
   useEffect(() => {
     if (currentProjectId) {
@@ -156,9 +156,9 @@ export default function Agent2Page() {
         throw new Error("Received invalid extraction data from server.");
       }
 
-    } catch (err: any) {
+    } catch (err) { // Typed as Error
       console.error("Agent2Page: Extraction error:", err);
-      setExtractionError(err.message || 'Unknown error during extraction.');
+      setExtractionError((err as Error).message || 'Unknown error during extraction.');
     } finally {
       setIsExtracting(false);
     }
@@ -186,7 +186,7 @@ export default function Agent2Page() {
               <div>
                 <h3 className="text-lg font-medium mb-1">Technical Features</h3>
                 {ext.technical_features?.length > 0 ? (
-                  ext.technical_features.map((f, i) => (
+                  ext.technical_features.map((f: TechFeature, i: number) => ( // Typed f and i
                     <div key={`tech-${i}`} className="pl-2 border-l-2 border-gray-200 dark:border-gray-700 mb-2 pb-1">
                       <p>
                         <strong>{f.feature_name}</strong>:{' '}
@@ -196,7 +196,7 @@ export default function Agent2Page() {
                         {f.feature_unit || ''}
                       </p>
                       <p className="italic text-sm text-gray-500 dark:text-gray-400 mt-0.5">
-                        Source: “{f.source_sentence}”
+                        Source: &ldquo;{f.source_sentence}&rdquo; {/* Replaced quotes */}
                       </p>
                     </div>
                   ))
