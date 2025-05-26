@@ -1,8 +1,8 @@
 // frontend/src/app/projects/page.tsx
-// Cache-breaking comment - attempt 2 (just to be sure)
+// Cache-breaking comment - attempt 3
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useCallback } from 'react'; // Added useCallback
 import { useRouter } from 'next/navigation';
 import { useProjects } from '@/context/ProjectsContext';
 import { Button } from '@/components/ui/button';
@@ -38,11 +38,9 @@ export default function ProjectsPage() {
     const [userSessionId, setUserSessionId] = useState<string | null>(null);
     const [pageError, setPageError] = useState<string | null>(null);
 
-    // Ref to track if a fetch has been *initiated* for a specific session ID
-    // to prevent re-fetching while one is already in progress or if already fetched.
     const fetchInitiatedForSession = useRef<string | null>(null);
 
-    // Effect 1: Establish userSessionId (Runs ONCE on mount to get/set the ID)
+    // Effect 1: Establish userSessionId (Runs ONCE on mount)
     useEffect(() => {
         console.log("ProjectsPage - Effect 1: Running to establish session ID.");
         let sessionIdFromStorage = localStorage.getItem('user_session_id');
@@ -53,93 +51,74 @@ export default function ProjectsPage() {
         } else {
             console.log("ProjectsPage - Effect 1: Existing session ID found:", sessionIdFromStorage);
         }
-        // Only set if it's actually different to avoid an unnecessary re-render loop
-        if (userSessionId !== sessionIdFromStorage) {
-            setUserSessionId(sessionIdFromStorage);
-            console.log("ProjectsPage - Effect 1: Setting userSessionId state to:", sessionIdFromStorage);
-        }
-    }, []); // Empty dependency array: runs only once on component mount.
+        setUserSessionId(sessionIdFromStorage); // Set it; React handles no-op if value is same
+        console.log("ProjectsPage - Effect 1: userSessionId state will be set to:", sessionIdFromStorage);
+    }, []); // Runs once on mount
 
-    // Effect 2: Load projects when userSessionId is available or fetchProjects (the function itself) changes.
+    // Effect 2: Load projects
     useEffect(() => {
         console.log(`ProjectsPage - Effect 2: Evaluating. userSessionId: ${userSessionId}, fetchInitiatedForSession: ${fetchInitiatedForSession.current}, isContextLoading: ${isContextLoading}, projects.length: ${projects.length}`);
 
-        // Guard: Only proceed if userSessionId is available.
         if (!userSessionId) {
             console.log("ProjectsPage - Effect 2: No userSessionId. Setting state to 'session_init'.");
             setPageLoadingState('session_init');
-            fetchInitiatedForSession.current = null; // Reset tracking if session is lost/not set
+            fetchInitiatedForSession.current = null;
             return;
         }
 
-        // Guard: If a fetch has already been initiated for the current userSessionId, don't do it again.
-        // This also handles the case where projects might already be loaded (e.g., from context cache after navigation)
-        // and the state just needs to be updated to 'projects_loaded'.
         if (fetchInitiatedForSession.current === userSessionId) {
-            console.log(`ProjectsPage - Effect 2: Fetch already initiated or completed for session ${userSessionId}.`);
-            // If projects are loaded and state isn't 'projects_loaded' or 'error', set it.
-            if (projects.length > 0 && pageLoadingState !== 'projects_loaded' && pageLoadingState !== 'error') {
-                console.log("ProjectsPage - Effect 2: Projects found, setting state to 'projects_loaded'.");
-                setPageLoadingState('projects_loaded');
-            } else if (projects.length === 0 && pageLoadingState === 'loading_projects' && !isContextLoading) {
-                // If still 'loading_projects' but context says not loading and no projects, it's an empty state.
-                console.log("ProjectsPage - Effect 2: No projects, context not loading, setting state to 'projects_loaded' (for empty state).");
-                setPageLoadingState('projects_loaded');
-            } else if (pageLoadingState === 'error') {
-                 console.log("ProjectsPage - Effect 2: State is 'error', not changing.");
-            } else if (pageLoadingState !== 'projects_loaded' && pageLoadingState !== 'error' && !isContextLoading && projects.length === 0) {
-                console.log("ProjectsPage - Effect 2: Defaulting to 'projects_loaded' for empty state if not loading.");
-                setPageLoadingState('projects_loaded');
-            }
+            console.log(`ProjectsPage - Effect 2: Fetch already initiated/completed for session ${userSessionId}.`);
+            setPageLoadingState(currentState => {
+                if (currentState === 'error') return 'error'; // Don't override an existing error
+
+                if (projects.length > 0) {
+                    console.log("ProjectsPage - Effect 2: Projects found, ensuring state is 'projects_loaded'.");
+                    return 'projects_loaded';
+                }
+                if (!isContextLoading) { // No projects, context not loading
+                    console.log("ProjectsPage - Effect 2: No projects, context not loading, ensuring state 'projects_loaded' (for empty state).");
+                    return 'projects_loaded'; // Renders empty state
+                }
+                return currentState; // Otherwise, keep current state (likely loading_projects or session_init)
+            });
             return;
         }
 
-        // If we reach here, it means userSessionId is present and we haven't initiated a fetch for it yet.
         console.log(`ProjectsPage - Effect 2: Initiating project load for session ID: ${userSessionId}`);
-        fetchInitiatedForSession.current = userSessionId; // Mark that fetch is being initiated for this session
+        fetchInitiatedForSession.current = userSessionId;
         setPageLoadingState('loading_projects');
         setPageError(null);
 
         const loadProjectsAsync = async (sid: string) => {
             console.log(`ProjectsPage - Effect 2: loadProjectsAsync called for ${sid}`);
             try {
-                await fetchProjects(sid); // fetchProjects is from context
+                await fetchProjects(sid);
                 console.log(`ProjectsPage - Effect 2: fetchProjects(sid) completed for session ${sid}.`);
-                // Only update page state if the session ID hasn't changed *during* the async fetch
-                // and if the fetch wasn't for a now-stale session ID.
                 if (fetchInitiatedForSession.current === sid && userSessionId === sid) {
                     setPageLoadingState('projects_loaded');
                     console.log(`ProjectsPage - Effect 2: State set to 'projects_loaded' for session ${sid}.`);
                 } else {
-                    console.log(`ProjectsPage - Effect 2: Session ID changed or fetch was for stale session during/after fetch. Current session: ${userSessionId}, Fetched for: ${sid}, Initiated for: ${fetchInitiatedForSession.current}. Not updating page state for old session.`);
+                    console.log(`ProjectsPage - Effect 2: Session ID changed or fetch was for stale session. Not updating page state for old session.`);
                 }
-            } catch (err) {
-                console.error("ProjectsPage - Effect 2: Failed to load projects:", err);
-                // Only update page state if the error belongs to the currently active session initiation
+            } catch (errCatch) {
+                const error = errCatch as Error;
+                console.error("ProjectsPage - Effect 2: Failed to load projects:", error);
                 if (fetchInitiatedForSession.current === sid && userSessionId === sid) {
-                    setPageError((err as Error).message || "Could not load projects. Please try again later.");
+                    setPageError(error.message || "Could not load projects. Please try again later.");
                     setPageLoadingState('error');
                     console.log(`ProjectsPage - Effect 2: State set to 'error' for session ${sid}.`);
                 } else {
-                    console.log(`ProjectsPage - Effect 2: Error occurred for session ${sid}, but session ID changed or fetch was stale. Current session: ${userSessionId}, Error for: ${sid}, Initiated for: ${fetchInitiatedForSession.current}. Not updating page state for old session's error.`);
+                    console.log(`ProjectsPage - Effect 2: Error for stale session. Not updating page state.`);
                 }
             }
         };
 
         loadProjectsAsync(userSessionId);
 
-    // Dependencies:
-    // - userSessionId: Triggers when the session ID is set or changes.
-    // - fetchProjects: Triggers if the fetchProjects function reference from context changes (should be stable with useCallback).
-    // - projects: Re-evaluate if the projects array itself changes (e.g., from cache update or another component).
-    // - isContextLoading: If the context's loading state changes, we might need to update our page's loading state.
-    //
-    // Removing `pageLoadingState` from deps is key to avoid loops with `setPageLoadingState` inside.
-    }, [userSessionId, fetchProjects, projects, isContextLoading]);
-
+    }, [userSessionId, fetchProjects, projects, isContextLoading]); // Removed pageLoadingState
 
     // --- Handlers ---
-    const handleCreateNewProject = async (e: React.FormEvent) => {
+    const handleCreateNewProject = useCallback(async (e: React.FormEvent) => {
         e.preventDefault();
         console.log("ProjectsPage: handleCreateNewProject triggered");
         setPageError(null);
@@ -152,8 +131,8 @@ export default function ProjectsPage() {
         }
         setIsCreatingProject(true);
         try {
-            console.log("ProjectsPage: Calling createProject from context with name:", trimmedName, "sessionId:", userSessionId);
-            const newProject = await createProject(trimmedName, userSessionId);
+            console.log("ProjectsPage: Calling createProject with name:", trimmedName, "sessionId:", userSessionId);
+            const newProject = await createProject(trimmedName, userSessionId); // userSessionId is from state, stable in this scope
             if (newProject && newProject.id) {
                 console.log("ProjectsPage: Project created successfully:", newProject.id);
                 setNewProjectName('');
@@ -162,13 +141,34 @@ export default function ProjectsPage() {
                 console.error("ProjectsPage: Project creation returned invalid data:", newProject);
                 throw new Error("Project creation returned invalid data.");
             }
-        } catch (err) {
-            console.error("ProjectsPage: Error creating project:", err);
-            setPageError((err as Error).message || "Failed to create project.");
+        } catch (errCatch) {
+            const error = errCatch as Error;
+            console.error("ProjectsPage: Error creating project:", error);
+            setPageError(error.message || "Failed to create project.");
         } finally {
             setIsCreatingProject(false);
         }
-    };
+    }, [newProjectName, userSessionId, createProject, router, setNewProjectName, setPageError, setIsCreatingProject]); // Added all dependencies
+
+    const handleRetryLoad = useCallback(() => {
+        if (userSessionId) {
+            console.log("ProjectsPage: Retry button clicked. Resetting fetchInitiated and calling fetchProjects.");
+            fetchInitiatedForSession.current = null;
+            setPageLoadingState('loading_projects');
+            setPageError(null);
+            fetchProjects(userSessionId) // userSessionId from state, fetchProjects from context
+                .then(() => {
+                    console.log("ProjectsPage: Retry fetchProjects succeeded.");
+                    // Effect 2 will handle setting pageLoadingState to 'projects_loaded'
+                })
+                .catch((fetchErr: Error) => {
+                    console.error("ProjectsPage: Retry fetchProjects failed:", fetchErr);
+                    setPageError(fetchErr.message || "Retry failed. Please try again.");
+                    setPageLoadingState('error');
+                });
+        }
+    }, [userSessionId, fetchProjects, setPageLoadingState, setPageError]); // Added dependencies
+
 
     // --- Derived State ---
     const isInputDisabled = isCreatingProject || isContextLoading || pageLoadingState === 'loading_projects' || pageLoadingState === 'session_init';
@@ -201,30 +201,7 @@ export default function ProjectsPage() {
                 <Button
                     variant="destructive"
                     className="mt-6"
-                    onClick={() => {
-                        if (userSessionId) {
-                            console.log("ProjectsPage: Retry button clicked. Resetting fetchInitiated and calling fetchProjects.");
-                            fetchInitiatedForSession.current = null; // Allow re-fetch
-                            // Force re-trigger of useEffect by briefly clearing userSessionId or a dedicated retry state
-                            // However, the effect should re-run if userSessionId is already set and fetchInitiated is null.
-                            // Let's just call fetchProjects, the effect should then pick up the state change.
-                            setPageLoadingState('loading_projects'); // Show loading
-                            fetchProjects(userSessionId)
-                                .then(() => {
-                                    // If fetchProjects in context updates 'projects' or 'isLoading',
-                                    // Effect 2 should naturally update pageLoadingState to 'projects_loaded'
-                                    // if (fetchInitiatedForSession.current === userSessionId) { // ensure it's still the same session
-                                    //     setPageLoadingState('projects_loaded');
-                                    // }
-                                })
-                                .catch(err => {
-                                    // if (fetchInitiatedForSession.current === userSessionId) {
-                                    //     setPageError((err as Error).message || "Retry failed.");
-                                    //     setPageLoadingState('error');
-                                    // }
-                                });
-                        }
-                    }}
+                    onClick={handleRetryLoad} // Use useCallback version
                     disabled={isContextLoading || !userSessionId || pageLoadingState === 'loading_projects'}
                 >
                     {(isContextLoading || pageLoadingState === 'loading_projects') ? <Spinner size={16} /> : 'Retry Loading'}
@@ -285,27 +262,22 @@ export default function ProjectsPage() {
         if (pageLoadingState === 'session_init' || (!userSessionId && pageLoadingState !== 'error')) {
             return renderLoadingState();
         }
-        if (pageLoadingState === 'loading_projects' && !pageError) { // Show loading as long as we are in this state without an error
+        if (pageLoadingState === 'loading_projects' && !pageError) {
              return renderLoadingState();
         }
         if (pageLoadingState === 'error') {
             return renderErrorState();
         }
-        // If projects are loaded (or context isn't loading anymore and we have 0 projects from a previous successful fetch)
         if (pageLoadingState === 'projects_loaded' && projects.length === 0 && !isContextLoading) {
             return renderEmptyState();
         }
-        if (projects.length > 0) { // Can be true even if pageLoadingState is 'loading_projects' if projects were loaded from cache
+        if (projects.length > 0) {
             return renderProjectsList();
         }
-        // Fallback loading state if none of the above conditions are met but we are not in an error state
-        // This might catch edge cases where `isContextLoading` is true but `pageLoadingState` hasn't caught up.
         if (isContextLoading) return renderLoadingState();
-
-        // If projects loaded, 0 projects, not context loading, and somehow not caught by empty state (should be)
         if (pageLoadingState === 'projects_loaded' && projects.length === 0) return renderEmptyState();
 
-        return renderLoadingState(); // Default fallback
+        return renderLoadingState();
     };
 
     console.log(`ProjectsPage: Rendering component. userSessionId: ${userSessionId}, pageLoadingState: ${pageLoadingState}, isContextLoading: ${isContextLoading}, projects:`, projects.length);
@@ -313,8 +285,6 @@ export default function ProjectsPage() {
     return (
         <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white p-4 sm:p-8 lg:p-12">
             <div className="max-w-7xl mx-auto space-y-12">
-
-                {/* Header Section */}
                 <div className="flex flex-col sm:flex-row justify-between items-center pb-6 border-b border-gray-200">
                     <div>
                         <h1 className="text-4xl font-bold tracking-tight text-gray-900">Projects Dashboard</h1>
@@ -327,12 +297,10 @@ export default function ProjectsPage() {
                         </div>
                     )}
                 </div>
-
-                {/* Create Project Section */}
                 <Card className="bg-white shadow-lg border-none rounded-xl overflow-hidden">
                     <CardHeader className="bg-gray-50 p-6 border-b border-gray-100">
                         <CardTitle className="text-2xl font-semibold text-gray-800 flex items-center">
-                            <PlusCircle className="mr-3 h-6 w-6 text-blue-500" /> Start a New Project
+                           <PlusCircle className="mr-3 h-6 w-6 text-blue-500" /> Start a New Project
                         </CardTitle>
                         <CardDescription className="mt-1 text-gray-500">
                             Give your new project a name to get started.
@@ -353,14 +321,14 @@ export default function ProjectsPage() {
                                     disabled={isInputDisabled}
                                     className="w-full text-base p-4 rounded-lg focus:ring-blue-500 focus:border-blue-500"
                                 />
-                                {pageError && pageLoadingState !== 'error' && ( // Only show this secondary error if not already in main error state
+                                 {pageError && pageLoadingState !== 'error' && (
                                     <p className="text-red-600 mt-2 text-sm flex items-center">
                                         <AlertTriangle className="h-4 w-4 mr-1" />
                                         {pageError}
                                     </p>
                                 )}
                             </div>
-                            <Button
+                             <Button
                                 type="submit"
                                 disabled={isButtonDisabled}
                                 size="lg"
@@ -378,13 +346,10 @@ export default function ProjectsPage() {
                         </form>
                     </CardContent>
                 </Card>
-
-                {/* Projects List Section */}
-                <div className="mt-12">
+                 <div className="mt-12">
                     <h2 className="text-2xl font-semibold text-gray-900 mb-6">Your Existing Projects</h2>
                     {renderContent()}
                 </div>
-
             </div>
         </div>
     );
