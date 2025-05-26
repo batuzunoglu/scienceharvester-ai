@@ -50,7 +50,7 @@ The Perplexity API, specifically its powerful Sonar models, is the core AI engin
         This detailed extraction provides the granular data needed for the final synthesis.
 
 3.  **Agent 3 (Report Synthesizer):**
-    *   **API & Model:** Leverages a powerful Perplexity API model suitable for long-form generation and synthesis, such as `sonar-reasoning` or a large instruction-tuned model like `llama-3-70b-instruct`.
+    *   **API & Model:** Leverages a powerful Perplexity API model suitable for long-form generation and synthesis, such as `sonar-reasoning`.
     *   **Purpose & Why:** This agent's task is to create a coherent, multi-section research report from the potentially diverse information extracted by Agent 1 (overall topic) and Agent 2 (detailed data from multiple papers). A model with strong reasoning and generation capabilities is essential.
     *   **Functionality:**
         *   A "digest" is created by consolidating all key information from Agent 1 and Agent 2 for the current project.
@@ -79,7 +79,7 @@ The Perplexity API, specifically its powerful Sonar models, is the core AI engin
     *   **Server-Sent Events:** `EventSourcePolyfill`
     *   **Markdown Rendering:** `react-markdown`, `remark-gfm`
     *   **Icons:** `lucide-react`
-*   **AI Service:** Perplexity API (Models: `sonar-deep-research`, `sonar-reasoning-pro`, `sonar-reasoning` / `llama-3-70b-instruct`)
+*   **AI Service:** Perplexity API (Models: `sonar-deep-research`, `sonar-reasoning-pro`, `sonar-reasoning`)
 *   **Data Storage:**
     *   Local File System (for project-specific agent outputs: JSON, MD, PDF files).
     *   `projects_db.json` (local JSON file for project metadata).
