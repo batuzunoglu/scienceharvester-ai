@@ -54,17 +54,20 @@ export interface Project {
   agent3_report_pdf_file?: string | null;
   papers?: Paper[];
   extractions?: Extraction[];
+  // Consider adding created_at, updated_at if your backend provides them
+  created_at?: string;
+  updated_at?: string;
 }
 
 interface ProjectsContextValue {
   projects: Project[];
   isLoading: boolean;
   fetchProjects(userSessionId?: string): Promise<void>;
-  createProject(name: string, userSessionId: string): Promise<Project>;
+  createProject(name: string, userSessionId: string): Promise<Project>; // Assuming it returns the created project
   updatePapers(projectId: string, papers: Paper[]): void;
   updateExtractions(projectId: string, extractionsData: Extraction[]): void;
   getProject(id: string): Project | undefined;
-  getProjectDetails(id: string): Promise<Project>;
+  getProjectDetails(id: string): Promise<Project>; // Assuming it returns the detailed project
 }
 
 // --- CONTEXT DEFINITION ---
@@ -79,53 +82,67 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
 
   const fetchProjects = useCallback(async (userSessionId?: string) => {
     setIsLoading(true);
-    // console.log("Context: fetchProjects called with userSessionId:", userSessionId);
+    console.log("Context: fetchProjects called with userSessionId:", userSessionId);
     try {
-      let url = `${API_BASE_URL}/api/projects/`;
+      let url = `${API_BASE_URL}/api/projects/`; // <<<< ENSURED TRAILING SLASH HERE
       if (userSessionId) {
         url += `?user_session_id=${encodeURIComponent(userSessionId)}`;
       }
+      console.log("Context: Fetching projects from URL:", url);
+
       const response = await fetch(url);
       if (!response.ok) {
         const errorText = await response.text();
-        console.error("Context: Failed to fetch projects from backend:", response.statusText, response.status, errorText);
+        const errorMessage = `Context: Failed to fetch projects from backend: ${response.status} ${response.statusText}. Details: ${errorText.substring(0, 200)}`;
+        console.error(errorMessage);
+        // Attempt to load from localStorage as a fallback
         const localProjectsJson = localStorage.getItem('projects_cache');
         if (localProjectsJson) {
-            try { setProjects(JSON.parse(localProjectsJson)); } catch { /* ignore */ }
+            try { setProjects(JSON.parse(localProjectsJson)); } catch { /* ignore parse error */ }
         } else {
-            setProjects([]);
+            setProjects([]); // Clear projects if localStorage is also empty/invalid
         }
-        return; 
+        throw new Error(errorMessage); // Re-throw to allow calling component to handle UI
       }
       const backendProjects: Project[] = await response.json();
       setProjects(backendProjects);
       localStorage.setItem('projects_cache', JSON.stringify(backendProjects));
     } catch (error) {
-      console.error("Context: Error fetching projects:", error);
+      console.error("Context: Error during fetchProjects (might be network or re-thrown error):", error);
+      // Fallback to localStorage on any error (e.g. network failure before response.ok check)
       const localProjectsJson = localStorage.getItem('projects_cache');
       if (localProjectsJson) {
         try { setProjects(JSON.parse(localProjectsJson)); } catch { /* ignore */ }
       } else {
         setProjects([]);
       }
+      // Re-throw the error so the calling component (e.g., ProjectsPage) can catch it and update UI
+      throw error;
     } finally {
         setIsLoading(false);
     }
-  }, [setIsLoading]); // setIsLoading is stable
+  }, [setIsLoading]); // setIsLoading is stable from useState
 
   const createProject = useCallback(async (name: string, userSessionId: string): Promise<Project> => {
     setIsLoading(true);
+    console.log("Context: createProject called with name:", name, "userSessionId:", userSessionId);
     try {
+      // Ensure trailing slash for POST as well, if your FastAPI router expects it
+      // For create_project, the endpoint is also effectively /api/projects/
       const response = await fetch(`${API_BASE_URL}/api/projects/`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, user_session_id: userSessionId }),
       });
+      console.log("Context: createProject response status:", response.status);
       if (!response.ok) {
         const errorData = await response.text();
-        throw new Error(`Failed to create project: ${response.status} - ${errorData.substring(0, 200)}`);
+        const errorMessage = `Failed to create project: ${response.status} - ${errorData.substring(0, 200)}`;
+        console.error("Context: createProject error:", errorMessage);
+        throw new Error(errorMessage);
       }
       const newBackendProject: Project = await response.json();
+      console.log("Context: Project created successfully:", newBackendProject.id);
       setProjects(ps => {
           const updatedProjects = [...ps, newBackendProject];
           localStorage.setItem('projects_cache', JSON.stringify(updatedProjects));
@@ -133,7 +150,7 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
       });
       return newBackendProject;
     } catch (error) {
-      console.error("Context: Error creating project:", error);
+      console.error("Context: Error during createProject (outer catch):", error);
       throw error; 
     } finally {
         setIsLoading(false);
@@ -142,14 +159,21 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
 
   const getProjectDetails = useCallback(async (id: string): Promise<Project> => {
     setIsLoading(true);
+    console.log("Context: getProjectDetails called for ID:", id);
     try {
+        // For /api/projects/{project_id}, FastAPI typically doesn't enforce a trailing slash by default
+        // after a path parameter, but it's good to be consistent if possible.
+        // However, your backend @router.get("/{project_id}") does not have a trailing slash.
         const response = await fetch(`${API_BASE_URL}/api/projects/${id}`);
+        console.log("Context: getProjectDetails response status:", response.status);
         if (!response.ok) {
             const errorText = await response.text();
-            console.error(`Context: Failed to fetch project details for ${id}: ${response.status} ${errorText}`);
-            throw new Error(`Failed to fetch project details for project ${id}. Status: ${response.status}. Details: ${errorText.substring(0,150)}`);
+            const errorMessage = `Context: Failed to fetch project details for ${id}: ${response.status} ${errorText.substring(0,150)}`;
+            console.error(errorMessage);
+            throw new Error(errorMessage);
         }
         const projectDetail: Project = await response.json();
+        console.log("Context: Project details fetched for:", projectDetail.id);
         setProjects(prevProjects => {
             const foundIndex = prevProjects.findIndex(p => p.id === id);
             const updatedProjects = [...prevProjects];
@@ -163,7 +187,7 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
         });
         return projectDetail;
     } catch (error) {
-        console.error(`Context: Error fetching project details for ${id}:`, error);
+        console.error(`Context: Error during getProjectDetails for ${id} (outer catch):`, error);
         throw error; 
     } finally {
         setIsLoading(false);
@@ -171,36 +195,54 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
   }, [setIsLoading]); // setIsLoading is stable
 
   const updatePapers = useCallback((projectId: string, papersData: Paper[]) => {
-    setProjects(ps =>
-      ps.map(p => (p.id === projectId ? { ...p, papers: papersData } : p))
-    );
+    console.log("Context: updatePapers called for projectId:", projectId);
+    setProjects(ps => {
+      const updated = ps.map(p => (p.id === projectId ? { ...p, papers: papersData } : p));
+      localStorage.setItem('projects_cache', JSON.stringify(updated));
+      return updated;
+    });
   }, []); // Stable
 
   const updateExtractions = useCallback((projectId: string, extractionsData: Extraction[]) => {
-    setProjects(ps =>
-      ps.map(p => (p.id === projectId ? { ...p, extractions: extractionsData } : p))
-    );
+    console.log("Context: updateExtractions called for projectId:", projectId);
+    setProjects(ps => {
+      const updated = ps.map(p => (p.id === projectId ? { ...p, extractions: extractionsData } : p));
+      localStorage.setItem('projects_cache', JSON.stringify(updated));
+      return updated;
+    });
   }, []); // Stable
 
   const getProject = useCallback((id: string): Project | undefined => {
+    // console.log("Context: getProject called for ID:", id); // Can be noisy
     return projects.find(p => p.id === id);
   }, [projects]); // Stability tied to 'projects' state
 
   useEffect(() => {
     // Load projects from localStorage on initial mount
+    console.log("Context: Initial mount effect running to load from localStorage.");
     const localProjectsJson = localStorage.getItem('projects_cache');
     if (localProjectsJson) {
         try {
             const cachedProjects = JSON.parse(localProjectsJson);
             if (Array.isArray(cachedProjects)) {
                 setProjects(cachedProjects);
+                console.log("Context: Loaded", cachedProjects.length, "projects from localStorage.");
+            } else {
+                 console.log("Context: Data from localStorage is not an array.");
             }
-        } catch {/*ignore parse error*/}
+        } catch (e) {
+            console.error("Context: Error parsing projects from localStorage:", e);
+        }
+    } else {
+        console.log("Context: No projects_cache found in localStorage.");
     }
     setMounted(true);
   }, []); // Runs once on mount
 
-  if (!mounted) return null; 
+  if (!mounted) {
+    // console.log("Context: Not mounted yet, returning null."); // Can be noisy
+    return null; 
+  }
 
   return (
     <ProjectsContext.Provider value={{
@@ -221,6 +263,8 @@ export function ProjectsProvider({ children }: { children: React.ReactNode }) {
 // --- HOOK TO USE CONTEXT ---
 export const useProjects = () => {
   const ctx = useContext(ProjectsContext);
-  if (!ctx) throw new Error("useProjects must be used within a ProjectsProvider");
+  if (!ctx) {
+    throw new Error("useProjects must be used within a ProjectsProvider. Make sure your component is wrapped.");
+  }
   return ctx;
 };
