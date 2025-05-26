@@ -1,17 +1,24 @@
 // frontend/src/app/projects/[projectId]/agent1/page.tsx
-'use client'; // Keep if you use client hooks, remove if not needed for this simple test
+// NO 'use client' for this test if possible
 
-// import { useParams } from 'next/navigation'; // Keep if using params
+interface Agent1PageProps {
+  params: {
+    projectId: string; // This should match the folder name [projectId]
+  };
+  searchParams?: { [key: string]: string | string[] | undefined }; // Optional, good practice to include
+}
 
-export default function Agent1Page({ params }: { params: { projectId: string } }) {
-  // const paramsFromHook = useParams(); // Alternative way to get params
-  // const projectId = Array.isArray(paramsFromHook.projectId) ? paramsFromHook.projectId[0] : paramsFromHook.projectId;
-
+export default function Agent1Page({ params, searchParams }: Agent1PageProps) {
   return (
     <div>
       <h1>Test Agent 1 Page</h1>
       <p>Project ID from props: {params.projectId}</p>
-      {/* <p>Project ID from hook: {projectId}</p> */}
+      {searchParams && Object.keys(searchParams).length > 0 && (
+        <div>
+          <h2>Search Params:</h2>
+          <pre>{JSON.stringify(searchParams, null, 2)}</pre>
+        </div>
+      )}
     </div>
   );
 }
