@@ -2,10 +2,7 @@
 
 **Insight Harvester AI** is a multi-agent system designed to assist researchers by automating the discovery, extraction, and synthesis of information from academic literature on a user-defined topic. It streamlines the research workflow, enabling users to quickly move from a research question to a synthesized report with key insights.
 
-**(Optional: Add a Screenshot or GIF of the app in action here if you have one)**
-![Insight Harvester AI Screenshot](<img width="1360" alt="image" src="image.png" />
-) 
-*Replace `placeholder_for_your_screenshot.png` with an actual image in your repo or a link to an image.*
+![Insight Harvester AI Screenshot](https://raw.githubusercontent.com/batuzunoglu/scienceharvester-ai/main/image.png) 
 
 ## Problem Statement
 
