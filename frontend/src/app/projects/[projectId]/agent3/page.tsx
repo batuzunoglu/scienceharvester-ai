@@ -155,7 +155,7 @@ export default function Agent3ReportPage() {
 
       es.onerror = (err) => {
         console.error("EventSource error:", err);
-        let errorMsg = 'Connection error with the report stream.';
+        const errorMsg = 'Connection error with the report stream.';
         // Note: EventSource error objects are basic and don't typically carry HTTP status.
         setGenerationError(errorMsg);
         setStreamLog(prev => [...prev, `Stream connection failed. ${errorMsg}`]);
@@ -168,7 +168,7 @@ export default function Agent3ReportPage() {
         setGenerationError("Failed to connect to the report generation service.");
         setIsGenerating(false);
     }
-  }, [currentProjectId, API_BASE_URL]);
+  }, [currentProjectId]);
 
   const handleDownloadPdf = useCallback(async () => {
     if (!currentProjectId || !isPdfReady || isDownloadingPdf) return;
@@ -193,7 +193,7 @@ export default function Agent3ReportPage() {
         try {
             const errorJson = await response.json(); // Try to get detail from JSON error
             errorDetail = errorJson.detail || errorDetail;
-        } catch (e) { /* Ignore if response is not JSON */ }
+        } catch { /* Ignore if response is not JSON */ }
         throw new Error(`PDF download failed: ${errorDetail}`);
       }
 
@@ -215,13 +215,13 @@ export default function Agent3ReportPage() {
       URL.revokeObjectURL(url);
       setStreamLog(prev => [...prev, "PDF download initiated."]);
 
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("PDF download error:", err);
-      setGenerationError(err.message || 'An unknown error occurred during PDF download.');
+      setGenerationError((err as Error).message || 'An unknown error occurred during PDF download.');
     } finally {
       setIsDownloadingPdf(false);
     }
-  }, [currentProjectId, isPdfReady, isDownloadingPdf, API_BASE_URL]);
+  }, [currentProjectId, isPdfReady, isDownloadingPdf]);
 
   return (
     <div className="container mx-auto p-4 md:p-6 space-y-6">
@@ -298,7 +298,7 @@ export default function Agent3ReportPage() {
         </Card>
       )}
        {!markdownReport && !isGenerating && !isPreloading && !preloadError && currentProjectId && streamLog.length <=1 && (
-        <p className="text-muted-foreground mt-4 text-center">No report generated yet for this project. Click "Generate Full Report" to start.</p>
+        <p className="text-muted-foreground mt-4 text-center">No report generated yet for this project. Click &quot;Generate Full Report&quot; to start.</p>
       )}
     </div>
   );
