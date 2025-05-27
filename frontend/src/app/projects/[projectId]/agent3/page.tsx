@@ -77,9 +77,9 @@ export default function Agent3ReportPage() {
         } else {
           setStreamLog(prev => [...prev, "No existing report found for this project. Ready to generate."]);
         }
-      } catch (err: any) {
+      } catch (err: unknown) {
         console.error("Error preloading report:", err);
-        setPreloadError(err.message || "Failed to load existing report data.");
+        setPreloadError((err as Error).message || "Failed to load existing report data.");
         setStreamLog(prev => [...prev, `Error preloading report: ${err.message}`]);
       } finally {
         setIsPreloading(false);
