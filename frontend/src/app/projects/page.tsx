@@ -122,7 +122,7 @@ export default function ProjectsPage() {
                 {pageLoadingState === 'session_init' ? 'Initializing Session...' : 'Loading Your Projects...'}
             </p>
             {/* FIX: `'` can be escaped with `'` */}
-            <p className="mt-2 text-base text-gray-500">Hang tight, we're getting things ready for you.</p>
+            <p className="mt-2 text-base text-gray-500">Hang tight, we are getting things ready for you.</p>
         </div>
     );
 
@@ -148,8 +148,7 @@ export default function ProjectsPage() {
          <div className="text-center py-24 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50">
             <Inbox className="mx-auto h-16 w-16 text-gray-400" />
             <h3 className="mt-4 text-xl font-semibold text-gray-900">Your workspace is empty!</h3>
-            {/* FIX: `'` can be escaped with `'` */}
-            <p className="mt-2 text-base text-gray-500">Looks like you haven't created any projects yet.</p>
+            <p className="mt-2 text-base text-gray-500">Looks like you have not created any projects yet.</p>
              <p className="mt-1 text-base text-gray-500">Use the form above to start your first project.</p>
         </div>
     );
