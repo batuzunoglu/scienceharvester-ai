@@ -1,5 +1,5 @@
 # backend/Dockerfile
-FROM python:3.9-slim # Or your preferred Python version like 3.10, 3.11
+FROM python:3.13
 
 ENV PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=off \
