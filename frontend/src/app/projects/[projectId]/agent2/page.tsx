@@ -3,7 +3,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react'; // Added useEffect, useCallback
 import { useParams } from 'next/navigation';
-import { useProjects, Project, Extraction, TechFeature, QualInsights } from '@/context/ProjectsContext'; // Assuming Extraction, TechFeature, QualInsights are exported from context
+import { useProjects, Project, Extraction, QualInsights } from '@/context/ProjectsContext'; // Assuming Extraction, TechFeature, QualInsights are exported from context
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
@@ -14,7 +14,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 export default function Agent2Page() {
   const { projectId: rawProjectId } = useParams();
-  const { getProjectDetails, getProject, updateExtractions } = useProjects(); // Added getProjectDetails
+  const { getProjectDetails, updateExtractions } = useProjects(); // Added getProjectDetails
 
   const [currentProjectId, setCurrentProjectId] = useState<string | null>(null);
   const [project, setProject] = useState<Project | null | undefined>(null);
@@ -82,8 +82,8 @@ export default function Agent2Page() {
             }
             const extractionContent: Extraction = await fileRes.json();
             preloaded.push(extractionContent);
-          } catch (fileError: any) {
-             console.warn(`Error fetching or parsing content for ${filename}: ${fileError.message}`);
+          } catch (fileError: unknown) {
+             console.warn(`Error fetching or parsing content for ${filename}: ${(fileError as Error).message}`);
              preloaded.push({
                 filename: filename,
                 error: `Error loading pre-existing data: ${fileError.message.substring(0,100)}`,
@@ -98,13 +98,13 @@ export default function Agent2Page() {
       } else {
         console.log(`Agent2Page: No pre-existing Agent 2 extractions found for project ${currentProjectId}`);
       }
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Agent2Page: Error during preloading:", err);
-      setPreloadError(err.message || 'Failed to load initial project data.');
+      setPreloadError((err as Error).message || 'Failed to load initial project data.');
     } finally {
       setIsPreloading(false);
     }
-  }, [currentProjectId, getProjectDetails, updateExtractions, API_BASE_URL]); // API_BASE_URL is stable
+  }, [currentProjectId, getProjectDetails, updateExtractions]); // API_BASE_URL is stable
 
   useEffect(() => {
     if (currentProjectId) {
@@ -156,9 +156,9 @@ export default function Agent2Page() {
         throw new Error("Received invalid extraction data from server.");
       }
 
-    } catch (err: any) {
+    } catch (err: unknown) {
       console.error("Agent2Page: Extraction error:", err);
-      setExtractionError(err.message || 'Unknown error during extraction.');
+      setExtractionError((err as Error).message || 'Unknown error during extraction.');
     } finally {
       setIsExtracting(false);
     }
