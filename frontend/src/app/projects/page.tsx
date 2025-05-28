@@ -60,9 +60,9 @@ export default function ProjectsPage() {
                     await fetchProjects(sid);
                     projectsFetchedForCurrentSession.current = sid;
                     setPageLoadingState('projects_loaded');
-                } catch (err: any) {
+                } catch (err: unknown) {
                     console.error("ProjectsPage: Failed to load projects:", err);
-                    setPageError(err.message || "Could not load projects. Please try again later.");
+                    setPageError((err as Error).message || "Could not load projects. Please try again later.");
                     setPageLoadingState('error');
                 }
             };
@@ -90,9 +90,9 @@ export default function ProjectsPage() {
             } else {
                 throw new Error("Project creation returned invalid data.");
             }
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.error("Error creating project:", err);
-            setPageError(err.message || "Failed to create project.");
+            setPageError((err as Error).message || "Failed to create project.");
         } finally {
             setIsCreatingProject(false);
         }
@@ -118,7 +118,7 @@ export default function ProjectsPage() {
             <ServerCrash className="h-12 w-12 mx-auto text-red-500" />
             <AlertTitle className="text-xl font-bold mt-4">Load Error!</AlertTitle>
             <AlertDescription className="text-base mt-2">
-                {pageError || "We couldn't load your projects. Please check your connection and try again."}
+                {pageError || "We couldn&apos;t load your projects. Please check your connection and try again."}
             </AlertDescription>
             <Button
                 variant="destructive"
@@ -135,7 +135,7 @@ export default function ProjectsPage() {
          <div className="text-center py-24 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50">
             <Inbox className="mx-auto h-16 w-16 text-gray-400" />
             <h3 className="mt-4 text-xl font-semibold text-gray-900">Your workspace is empty!</h3>
-            <p className="mt-2 text-base text-gray-500">Looks like you haven't created any projects yet.</p>
+            <p className="mt-2 text-base text-gray-500">Looks like you haven&apos;t created any projects yet.</p>
              <p className="mt-1 text-base text-gray-500">Use the form above to start your first project.</p>
         </div>
     );
