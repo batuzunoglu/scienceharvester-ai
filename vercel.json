@@ -1,0 +1,35 @@
+// vercel.json (in your project root)
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "frontend/next.config.js", 
+      "use": "@vercel/next"
+    },
+    {
+      "src": "api/index.py", 
+      "use": "@vercel/python",
+      "config": {
+        // "maxLambdaSize": "50mb",
+        "runtime": "python3.9"    
+      }
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/index.py" 
+    },
+
+    {
+      "source": "/(.*)",
+      "destination": "/frontend/$1" 
+    }
+  ],
+  "env": {
+    // "PERPLEXITY_API_KEY": "@perplexity_api_key_secret" 
+  },
+  "github": {
+    "silent": true 
+  }
+}
