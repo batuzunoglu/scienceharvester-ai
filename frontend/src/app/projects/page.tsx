@@ -60,7 +60,7 @@ export default function ProjectsPage() {
                     await fetchProjects(sid);
                     projectsFetchedForCurrentSession.current = sid;
                     setPageLoadingState('projects_loaded');
-                } catch (err: any) {
+                } catch (err: unknown) {
                     console.error("ProjectsPage: Failed to load projects:", err);
                     setPageError(err.message || "Could not load projects. Please try again later.");
                     setPageLoadingState('error');
@@ -90,7 +90,7 @@ export default function ProjectsPage() {
             } else {
                 throw new Error("Project creation returned invalid data.");
             }
-        } catch (err: any) {
+        } catch (err: unknown) {
             console.error("Error creating project:", err);
             setPageError(err.message || "Failed to create project.");
         } finally {
