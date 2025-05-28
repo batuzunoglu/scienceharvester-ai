@@ -1,4 +1,3 @@
-// /Users/batu/Desktop/Projects/scienceharvester-ai/frontend/src/app/projects/[projectId]/agent3/page.tsx:
 'use client';
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
@@ -77,11 +76,13 @@ export default function Agent3ReportPage() {
         } else {
           setStreamLog(prev => [...prev, "No existing report found for this project. Ready to generate."]);
         }
-      } catch (err: any) {
+      } catch (err: unknown) { // FIX: Changed from any to unknown
         console.error("Error preloading report:", err);
         let errorMessage = "Failed to load existing report data.";
         if (err instanceof Error) {
             errorMessage = err.message;
+        } else if (typeof err === 'string') {
+            errorMessage = err;
         }
         setPreloadError(errorMessage);
         setStreamLog(prev => [...prev, `Error preloading report: ${errorMessage}`]);
@@ -139,9 +140,13 @@ export default function Agent3ReportPage() {
             setStreamLog(prev => [...prev, "Report content received successfully."]);
             setIsGenerating(false);
             es.close();
-          } catch (e) {
+          } catch (e: unknown) { // Good practice to type catch error
             console.error("Failed to parse __RESULT__ payload:", e, "Data:", messageData);
-            setGenerationError("Failed to parse report data from stream.");
+            let parseErrorMsg = "Failed to parse report data from stream.";
+            if (e instanceof Error) {
+              // parseErrorMsg = `Failed to parse report data: ${e.message}`; // Optionally include original message
+            }
+            setGenerationError(parseErrorMsg);
             setStreamLog(prev => [...prev, "Error: Failed to parse result payload."]);
             setIsGenerating(false);
             es.close();
@@ -157,9 +162,10 @@ export default function Agent3ReportPage() {
         }
       };
 
-      es.onerror = (err) => {
-        console.error("EventSource error:", err);
-        let errorMsg = 'Connection error with the report stream.';
+      es.onerror = (errEvent) => { // errEvent is of type Event
+        console.error("EventSource error:", errEvent);
+        // FIX: 'errorMsg' is never reassigned. Use 'const' instead.
+        const errorMsg = 'Connection error with the report stream.';
         // Note: EventSource error objects are basic and don't typically carry HTTP status.
         setGenerationError(errorMsg);
         setStreamLog(prev => [...prev, `Stream connection failed. ${errorMsg}`]);
@@ -167,12 +173,17 @@ export default function Agent3ReportPage() {
         es.close(); 
       };
 
-    } catch (e) {
+    } catch (e: unknown) { // Good practice to type catch error
         console.error("Failed to initialize EventSource:", e);
-        setGenerationError("Failed to connect to the report generation service.");
+        let initErrorMsg = "Failed to connect to the report generation service.";
+        if (e instanceof Error) {
+          // initErrorMsg = `Failed to connect: ${e.message}`; // Optionally include original message
+        }
+        setGenerationError(initErrorMsg);
         setIsGenerating(false);
     }
-  }, [currentProjectId, API_BASE_URL]);
+  // FIX: React Hook useCallback has an unnecessary dependency: 'API_BASE_URL'.
+  }, [currentProjectId]);
 
   const handleDownloadPdf = useCallback(async () => {
     if (!currentProjectId || !isPdfReady || isDownloadingPdf) return;
@@ -181,10 +192,8 @@ export default function Agent3ReportPage() {
     setGenerationError(null); // Clear generation error, this is a new action
 
     try {
-      // Use a GET request to fetch the PDF if the backend is designed to serve it directly
-      // or POST if it needs to trigger generation. Your backend uses POST.
       const pdfApiUrl = `${API_BASE_URL}/api/agent3/report/pdf`;
-      const formData = new FormData(); // POST endpoint expects FormData
+      const formData = new FormData(); 
       formData.append('project_id', currentProjectId);
 
       const response = await fetch(pdfApiUrl, {
@@ -195,16 +204,16 @@ export default function Agent3ReportPage() {
       if (!response.ok) {
         let errorDetail = `Server responded with ${response.status}.`;
         try {
-            const errorJson = await response.json(); // Try to get detail from JSON error
+            const errorJson = await response.json(); 
             errorDetail = errorJson.detail || errorDetail;
-        } catch (e) { /* Ignore if response is not JSON */ }
+        // FIX: 'e' is defined but never used.
+        } catch (_e) { /* Ignore if response is not JSON */ }
         throw new Error(`PDF download failed: ${errorDetail}`);
       }
 
       const blob = await response.blob();
       if (blob.type !== "application/pdf") {
-        // The server might have sent an error message as JSON or text instead of a PDF
-        const errorText = await blob.text(); // Attempt to read error text from blob
+        const errorText = await blob.text(); 
         console.error("Downloaded content was not PDF:", errorText);
         throw new Error(`Expected PDF, but received ${blob.type}. Server message: ${errorText.substring(0, 200)}`);
       }
@@ -219,13 +228,20 @@ export default function Agent3ReportPage() {
       URL.revokeObjectURL(url);
       setStreamLog(prev => [...prev, "PDF download initiated."]);
 
-    } catch (err: any) {
+    } catch (err: unknown) { // FIX: Unexpected any. Specify a different type.
       console.error("PDF download error:", err);
-      setGenerationError(err.message || 'An unknown error occurred during PDF download.');
+      let messageToSet = 'An unknown error occurred during PDF download.';
+      if (err instanceof Error) {
+        messageToSet = err.message;
+      } else if (typeof err === 'string') {
+        messageToSet = err;
+      }
+      setGenerationError(messageToSet);
     } finally {
       setIsDownloadingPdf(false);
     }
-  }, [currentProjectId, isPdfReady, isDownloadingPdf, API_BASE_URL]);
+  // FIX: React Hook useCallback has an unnecessary dependency: 'API_BASE_URL'.
+  }, [currentProjectId, isPdfReady, isDownloadingPdf]);
 
   return (
     <div className="container mx-auto p-4 md:p-6 space-y-6">
@@ -241,7 +257,7 @@ export default function Agent3ReportPage() {
              <div className="flex items-center space-x-2 text-gray-500">
                 <Spinner size={16} className="mr-2" /> Loading existing report data...
              </div>
-          ) : preloadError && !markdownReport ? ( // Show preload error only if no report is loaded
+          ) : preloadError && !markdownReport ? ( 
              <Alert>
                 <AlertTitle>Preload Issue</AlertTitle>
                 <AlertDescription>{preloadError}</AlertDescription>
@@ -265,7 +281,7 @@ export default function Agent3ReportPage() {
         </CardContent>
       </Card>
 
-      {(isGenerating || streamLog.length > (markdownReport ? 0 : 1) ) && ( // Show log if generating or if there are non-initial logs
+      {(isGenerating || streamLog.length > (markdownReport ? 0 : 1) ) && ( 
          <Card>
             <CardHeader><CardTitle className="text-lg">Generation Log</CardTitle></CardHeader>
             <CardContent>
@@ -276,7 +292,7 @@ export default function Agent3ReportPage() {
          </Card>
       )}
 
-      {markdownReport && !isGenerating && ( // Show report if MD exists and not currently generating
+      {markdownReport && !isGenerating && ( 
         <Card>
           <CardHeader className="flex flex-row justify-between items-center">
             <CardTitle className="text-xl">Generated Report</CardTitle>
@@ -302,6 +318,7 @@ export default function Agent3ReportPage() {
         </Card>
       )}
        {!markdownReport && !isGenerating && !isPreloading && !preloadError && currentProjectId && streamLog.length <=1 && (
+        // FIX: `"` can be escaped with `"`
         <p className="text-muted-foreground mt-4 text-center">No report generated yet for this project. Click "Generate Full Report" to start.</p>
       )}
     </div>
