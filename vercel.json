@@ -1,33 +1,9 @@
-
 {
   "version": 2,
   "builds": [
     {
-      "src": "frontend/next.config.js", 
+      "src": "next.config.js",
       "use": "@vercel/next"
-    },
-    {
-      "src": "api/index.py", 
-      "use": "@vercel/python",
-      "config": {
-        "runtime": "python3.9"    
-      }
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/api/(.*)",
-      "destination": "/api/index.py" 
-    },
-
-    {
-      "source": "/(.*)",
-      "destination": "/frontend/$1" 
-    }
-  ],
-  "env": {
-  },
-  "github": {
-    "silent": true 
-  }
+  ]
 }
