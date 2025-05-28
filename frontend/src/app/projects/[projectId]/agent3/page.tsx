@@ -76,7 +76,7 @@ export default function Agent3ReportPage() {
         } else {
           setStreamLog(prev => [...prev, "No existing report found for this project. Ready to generate."]);
         }
-      } catch (err: unknown) { // FIX: Changed from any to unknown
+      } catch (err: unknown) { 
         console.error("Error preloading report:", err);
         let errorMessage = "Failed to load existing report data.";
         if (err instanceof Error) {
@@ -129,7 +129,6 @@ export default function Agent3ReportPage() {
 
       es.onmessage = (event) => {
         const messageData = event.data as string;
-        // setStreamLog(prev => [...prev, `Raw stream message: ${messageData.substring(0,100)}...`]);
 
         if (messageData.startsWith('__RESULT__')) {
           try {
@@ -140,12 +139,13 @@ export default function Agent3ReportPage() {
             setStreamLog(prev => [...prev, "Report content received successfully."]);
             setIsGenerating(false);
             es.close();
-          } catch (e: unknown) { // Good practice to type catch error
+          } catch (e: unknown) { 
             console.error("Failed to parse __RESULT__ payload:", e, "Data:", messageData);
-            let parseErrorMsg = "Failed to parse report data from stream.";
-            if (e instanceof Error) {
-              // parseErrorMsg = `Failed to parse report data: ${e.message}`; // Optionally include original message
-            }
+            // FIX: 'parseErrorMsg' is never reassigned. Use 'const' instead.
+            const parseErrorMsg = "Failed to parse report data from stream.";
+            // if (e instanceof Error) { // This part was commented, making parseErrorMsg effectively const
+            //   // parseErrorMsg = `Failed to parse report data: ${e.message}`; 
+            // }
             setGenerationError(parseErrorMsg);
             setStreamLog(prev => [...prev, "Error: Failed to parse result payload."]);
             setIsGenerating(false);
@@ -158,38 +158,36 @@ export default function Agent3ReportPage() {
           setIsGenerating(false);
           es.close();
         } else {
-          setStreamLog(prev => [...prev, messageData]); // General progress message
+          setStreamLog(prev => [...prev, messageData]); 
         }
       };
 
-      es.onerror = (errEvent) => { // errEvent is of type Event
+      es.onerror = (errEvent) => { 
         console.error("EventSource error:", errEvent);
-        // FIX: 'errorMsg' is never reassigned. Use 'const' instead.
         const errorMsg = 'Connection error with the report stream.';
-        // Note: EventSource error objects are basic and don't typically carry HTTP status.
         setGenerationError(errorMsg);
         setStreamLog(prev => [...prev, `Stream connection failed. ${errorMsg}`]);
         setIsGenerating(false);
         es.close(); 
       };
 
-    } catch (e: unknown) { // Good practice to type catch error
+    } catch (e: unknown) { 
         console.error("Failed to initialize EventSource:", e);
-        let initErrorMsg = "Failed to connect to the report generation service.";
-        if (e instanceof Error) {
-          // initErrorMsg = `Failed to connect: ${e.message}`; // Optionally include original message
-        }
+        // FIX: 'initErrorMsg' is never reassigned. Use 'const' instead.
+        const initErrorMsg = "Failed to connect to the report generation service.";
+        // if (e instanceof Error) { // This part was commented, making initErrorMsg effectively const
+        //   // initErrorMsg = `Failed to connect: ${e.message}`;
+        // }
         setGenerationError(initErrorMsg);
         setIsGenerating(false);
     }
-  // FIX: React Hook useCallback has an unnecessary dependency: 'API_BASE_URL'.
   }, [currentProjectId]);
 
   const handleDownloadPdf = useCallback(async () => {
     if (!currentProjectId || !isPdfReady || isDownloadingPdf) return;
 
     setIsDownloadingPdf(true);
-    setGenerationError(null); // Clear generation error, this is a new action
+    setGenerationError(null); 
 
     try {
       const pdfApiUrl = `${API_BASE_URL}/api/agent3/report/pdf`;
@@ -206,8 +204,8 @@ export default function Agent3ReportPage() {
         try {
             const errorJson = await response.json(); 
             errorDetail = errorJson.detail || errorDetail;
-        // FIX: 'e' is defined but never used.
-        } catch (_e) { /* Ignore if response is not JSON */ }
+        // FIX: '_e' is defined but never used. Use empty catch parameters if error object isn't needed.
+        } catch { /* Ignore if response is not JSON */ }
         throw new Error(`PDF download failed: ${errorDetail}`);
       }
 
@@ -228,7 +226,7 @@ export default function Agent3ReportPage() {
       URL.revokeObjectURL(url);
       setStreamLog(prev => [...prev, "PDF download initiated."]);
 
-    } catch (err: unknown) { // FIX: Unexpected any. Specify a different type.
+    } catch (err: unknown) { 
       console.error("PDF download error:", err);
       let messageToSet = 'An unknown error occurred during PDF download.';
       if (err instanceof Error) {
@@ -240,7 +238,6 @@ export default function Agent3ReportPage() {
     } finally {
       setIsDownloadingPdf(false);
     }
-  // FIX: React Hook useCallback has an unnecessary dependency: 'API_BASE_URL'.
   }, [currentProjectId, isPdfReady, isDownloadingPdf]);
 
   return (
@@ -318,7 +315,7 @@ export default function Agent3ReportPage() {
         </Card>
       )}
        {!markdownReport && !isGenerating && !isPreloading && !preloadError && currentProjectId && streamLog.length <=1 && (
-        // FIX: `"` can be escaped with `"`
+        // FIX: `"` can be escaped with `"` (Line 322 from error message)
         <p className="text-muted-foreground mt-4 text-center">No report generated yet for this project. Click "Generate Full Report" to start.</p>
       )}
     </div>
