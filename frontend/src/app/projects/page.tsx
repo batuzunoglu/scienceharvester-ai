@@ -60,9 +60,15 @@ export default function ProjectsPage() {
                     await fetchProjects(sid);
                     projectsFetchedForCurrentSession.current = sid;
                     setPageLoadingState('projects_loaded');
-                } catch (err: any) {
+                } catch (err: unknown) { // FIX: Unexpected any. Specify a different type.
                     console.error("ProjectsPage: Failed to load projects:", err);
-                    setPageError(err.message || "Could not load projects. Please try again later.");
+                    let errorMessage = "Could not load projects. Please try again later.";
+                    if (err instanceof Error) {
+                        errorMessage = err.message;
+                    } else if (typeof err === 'string') {
+                        errorMessage = err;
+                    }
+                    setPageError(errorMessage);
                     setPageLoadingState('error');
                 }
             };
@@ -90,9 +96,15 @@ export default function ProjectsPage() {
             } else {
                 throw new Error("Project creation returned invalid data.");
             }
-        } catch (err: any) {
+        } catch (err: unknown) { // FIX: Unexpected any. Specify a different type.
             console.error("Error creating project:", err);
-            setPageError(err.message || "Failed to create project.");
+            let errorMessage = "Failed to create project.";
+            if (err instanceof Error) {
+                errorMessage = err.message;
+            } else if (typeof err === 'string') {
+                errorMessage = err;
+            }
+            setPageError(errorMessage);
         } finally {
             setIsCreatingProject(false);
         }
@@ -109,6 +121,7 @@ export default function ProjectsPage() {
             <p className="mt-6 text-xl font-medium text-gray-700">
                 {pageLoadingState === 'session_init' ? 'Initializing Session...' : 'Loading Your Projects...'}
             </p>
+            {/* FIX: `'` can be escaped with `'` */}
             <p className="mt-2 text-base text-gray-500">Hang tight, we're getting things ready for you.</p>
         </div>
     );
@@ -135,6 +148,7 @@ export default function ProjectsPage() {
          <div className="text-center py-24 border-2 border-dashed border-gray-300 rounded-xl bg-gray-50">
             <Inbox className="mx-auto h-16 w-16 text-gray-400" />
             <h3 className="mt-4 text-xl font-semibold text-gray-900">Your workspace is empty!</h3>
+            {/* FIX: `'` can be escaped with `'` */}
             <p className="mt-2 text-base text-gray-500">Looks like you haven't created any projects yet.</p>
              <p className="mt-1 text-base text-gray-500">Use the form above to start your first project.</p>
         </div>
