@@ -83,10 +83,14 @@ export default function Agent2Page() {
             const extractionContent: Extraction = await fileRes.json();
             preloaded.push(extractionContent);
           } catch (fileError: unknown) {
-             console.warn(`Error fetching or parsing content for ${filename}: ${(fileError as Error).message}`);
+             let errorMessage = "An unknown error occurred";
+             if (fileError instanceof Error) {
+                 errorMessage = fileError.message;
+             }
+             console.warn(`Error fetching or parsing content for ${filename}: ${errorMessage}`);
              preloaded.push({
                 filename: filename,
-                error: `Error loading pre-existing data: ${fileError.message.substring(0,100)}`,
+                error: `Error loading pre-existing data: ${errorMessage.substring(0,100)}`,
                 technical_features: [],
                 qualitative_insights: { main_objective: null } as QualInsights
               });
